@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_plugin_name__",
+    "version": "1.0.0",
+    "description": "__MSG_plugin_desc__",
+    "author": "hicode0101@gmail.com",
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "default_locale": "en",
+    "minimum_chrome_version": "88.0.0",
+    "action": {
+        "default_popup": "ui/popup.html"
+    },
+    "options_page":"ui/options.html",
+    "permissions": [
+		"proxy",
+		"tabs",
+		"alarms",
+		"storage",
+		"webRequest",
+		"webRequestBlocking",
+		"contextMenus",
+		"http://*/*",
+		"https://*/*",
+		"<all_urls>"
+	],
+    "background": {
+        "service_worker": "js/service-worker.js"
+    }
+  }

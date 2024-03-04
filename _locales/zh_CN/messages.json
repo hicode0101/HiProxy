@@ -1,0 +1,9 @@
+{
+    "plugin_name": {
+        "message": "HiProxy"      
+    },
+    "plugin_desc": {
+        "message": "Chrome 浏览器代理设置插件"      
+    }
+    
+}
