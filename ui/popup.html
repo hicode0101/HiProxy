@@ -12,32 +12,24 @@
     
     <div class="layui-panel" style="width: 200px; margin: 1px;">
       <ul class="layui-menu">
-        <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-screen-restore"></i>Direct</div></li>
-        <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-windows"></i>System</div></li>
+        <li id="btn_direct"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-screen-restore"></i>Direct</div></li>
+        <li id="btn_system"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-windows"></i>System</div></li>
         <li class="layui-menu-item-divider"></li>
         <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome"></i>Http-8080</div></li>
         <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome"></i>Socks5-1080</div></li>
-        <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome"></i>Socks5-10808</div></li>        
+        <li id="btn_open"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome"></i>Socks5-10808</div></li>        
         <li class="layui-menu-item-divider"></li>
-        <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-set-fill"></i>Options</div></li>
+        <li id="btn_options"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-set-fill"></i>Options</div></li>
       </ul>
 
 
-      <button id="btn_open" type="button" class="layui-btn layui-btn-sm layui-btn-normal">
-        <i class="layui-icon layui-icon-chrome"></i> open
-      </button>
-      <hr class="layui-border-green">
-      <button id="btn_direct">direct</button>
-      <hr class="layui-border-green">
-      <button id="btn_system">system</button>
-      <hr class="layui-border-green">
-      <button id="btn_close">close</button>
-      <a href="options.html">Options</a>
+      
     </div>
 
     
 
     <script src="../lib/layui/layui.js"></script>
+    <script src="../js/layinit.js"></script>
     <script src="../js/popup.js"></script>
   </body>
 </html>

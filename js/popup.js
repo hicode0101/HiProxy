@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
         systemProxy();
     });
 
-    document.getElementById('btn_close').addEventListener('click', (e) => {
-        closeProxy();
-    });
+    //document.getElementById('btn_close').addEventListener('click', (e) => {
+    //    closeProxy();
+    //});
 
-
-
+    
+    
 
 });
 
@@ -45,9 +45,7 @@ function openProxy(){
     
     chrome.proxy.settings.set({value: config, scope: 'regular'}, console.log("代理设置完成"));
 
-    chrome.proxy.settings.get({'incognito': false}, function(config) {
-        console.log(JSON.stringify(config));
-    });
+    getCurrProxy();
 
 }
 
@@ -61,12 +59,22 @@ function directProxy(){
 
     chrome.proxy.settings.set({ value: {mode: "direct"}, scope: "regular" });
 
+    getCurrProxy();
+
 }
 
 function systemProxy(){
 
     chrome.proxy.settings.set({ value: {mode: "system"}, scope: "regular" });
 
+    getCurrProxy();
+
+}
+
+function getCurrProxy(){
+    chrome.proxy.settings.get({'incognito': false}, function(config) {
+        console.log(JSON.stringify(config));
+    });
 }
 
 

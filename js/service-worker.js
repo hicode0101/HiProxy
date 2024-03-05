@@ -1,8 +1,8 @@
 
 chrome.runtime.onInstalled.addListener((_reason) => {
-    console.debug("onInstalled");
+    console.log("onInstalled");
     //console.info("onInstalled");
-    console.log(JSON.stringify(_reason));
+    console.debug(JSON.stringify(_reason));
     
 
     
@@ -14,7 +14,7 @@ chrome.proxy.onProxyError.addListener(function(details) {
 });
 
 chrome.runtime.onStartup.addListener((event) => {
-    console.debug("onStartup");
+    console.log("onStartup");
 });
 
 chrome.runtime.getPlatformInfo((platformInfo)=>{
