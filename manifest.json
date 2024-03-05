@@ -15,20 +15,29 @@
     "action": {
         "default_popup": "ui/popup.html"
     },
-    "options_page":"ui/options.html",
+    "options_page": "ui/options.html",
     "permissions": [
-		"proxy",
-		"tabs",
-		"alarms",
-		"storage",
-		"webRequest",
-		"webRequestBlocking",
-		"contextMenus",
-		"http://*/*",
-		"https://*/*",
-		"<all_urls>"
-	],
+        "downloads",
+        "notifications",
+        "proxy",
+        "storage",
+        "tabs",
+        "alarms",
+        "webRequest",
+        "webRequestAuthProvider",
+        "contextMenus"
+    ],
     "background": {
         "service_worker": "js/service-worker.js"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "windows": "Alt+Shift+O",
+                "mac": "Command+Shift+O",
+                "chromeos": "Alt+Shift+O",
+                "linux": "Alt+Shift+O"
+            }
+        }
     }
-  }
+}
