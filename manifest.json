@@ -13,7 +13,8 @@
     "default_locale": "en",
     "minimum_chrome_version": "88.0.0",
     "action": {
-        "default_popup": "ui/popup.html"
+        "default_popup": "ui/popup.html",
+        "default_title": "__MSG_plugin_desc__"
     },
     "options_page": "ui/options.html",
     "permissions": [
