@@ -33,5 +33,11 @@ chrome.action.onClicked.addListener((tab) => {
 
 });
 
+function workerFuc() {
+    
+    console.log("workerFuc");
+
+}
+
 
 

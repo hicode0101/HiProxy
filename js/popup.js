@@ -2,9 +2,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('btn_open').addEventListener('click', (e) => {
+
+        testProxy();
+
         //proxyConfigsInit();
-        currProxyPidSet("socks5-10808");
-        openCurrProxy();
+        //currProxyPidSet("socks5-10808");
+        //openCurrProxy();
+        
 
     });
 
@@ -21,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //document.getElementById('btn_close').addEventListener('click', (e) => {
     //    closeProxy();
     //});
+
+    document.getElementById('btn_options').addEventListener('click', (e) => {
+        chrome.tabs.create({url: "ui/options.html"});
+
+    });
 
     //
     proxyConfigsInit();
@@ -87,6 +96,7 @@ async function openCurrProxy() {
             }
         }else{
             console.error("proxyConfigs is not a map");
+            directProxy();
         }
         
     });
@@ -94,8 +104,38 @@ async function openCurrProxy() {
 
 }
 
+function testProxy(){
+    //alert(2222);
+    console.log("testProxy");
+
+
+    var config = {
+        mode: "fixed_servers",
+        rules: {
+            singleProxy : {
+                scheme: "socks5",
+                host: "127.0.0.1",
+                port: 10808,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
+    };
+    
+    chrome.proxy.settings.set({value: config, scope: 'regular'}, console.log("porxy switched"));
+
+    showCurrProxy();
+    reDrawIcon("#ff0000");
+    closePopup();
+
+}
+
+
 function openProxy(proxyConfig) {
-    //alert("openProxy");
+
     console.log("openProxy", proxyConfig);
 
     var _config = {
