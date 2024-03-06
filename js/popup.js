@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('btn_open').addEventListener('click', (e) => {
-        proxyConfigsInit();
+        //proxyConfigsInit();
         currProxyPidSet("socks5-10808");
         openCurrProxy();
 
@@ -77,13 +77,18 @@ async function openCurrProxy() {
     console.log("currProxyPid", currProxyPid);
 
     proxyConfigsGetByCallback((result)=>{
-        proxyConfigs = result.proxyConfigs;
-        if (currProxyPid != undefined && proxyConfigsMap.has(currProxyPid) == true) {
-            proxyConfig = proxyConfigsMap.get(currProxyPid);
-            openProxy(proxyConfig);
-        } else {
-            directProxy();
+        proxyConfigs = result;
+        if(proxyConfigs instanceof Map){
+            if (currProxyPid != undefined && proxyConfigsMap.has(currProxyPid) == true) {
+                proxyConfig = proxyConfigsMap.get(currProxyPid);
+                openProxy(proxyConfig);
+            } else {
+                directProxy();
+            }
+        }else{
+            console.error("proxyConfigs is not a map");
         }
+        
     });
     
 
@@ -214,8 +219,10 @@ async function proxyConfigsGet() {
 
 function proxyConfigsGetByCallback(callback) {
     chrome.storage.local.get(["proxyConfigs"]).then((result) => {
-        console.log("Value is " + result);
-        callback(result);
+        console.log("GetValue is ", result);
+        map = new Map(JSON.parse(result.proxyConfigs));
+        console.log("map is ", map);
+        callback(map);
     });
    
 }
@@ -262,7 +269,7 @@ function proxyConfigsClear() {
 async function proxyConfigsInit() {
     console.log("proxyConfigsInit");
 
-    //storageClear();
+    storageClear();
 
     proxyConfigsMap = new Map();
 
@@ -354,8 +361,8 @@ async function proxyConfigsInit() {
 
     await proxyConfigsSet(proxyConfigsMap);
 
-    proxyConfigsMap = await proxyConfigsGet();
-    console.log(proxyConfigsMap);
+    //proxyConfigsMap = await proxyConfigsGet();
+    ///console.log(proxyConfigsMap);
 
 }
 
