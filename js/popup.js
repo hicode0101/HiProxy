@@ -35,6 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //
     proxyConfigsInit();
+    
+
+    //defaultProxy = chrome.runtime.getURL('js/defaultProxy.json');
+    //console.log(json);
 
 
 });
@@ -253,10 +257,7 @@ function openProxy(proxyConfig) {
 
     var _config = {
         mode: proxyConfig.mode,
-        rules: {
-            singleProxy : proxyConfig.rules.singleProxy,
-            bypassList: proxyConfig.rules.bypassList
-        }
+        rules: proxyConfig.rules
     };
 
     console.log("proxy.settings.set", _config);
@@ -362,7 +363,7 @@ async function proxyConfigsSet(proxyConfigsMap) {
     json = JSON.stringify(Array.from(proxyConfigsMap));
     await chrome.storage.local.set({"proxyConfigs": json});
     console.log(proxyConfigsMap);
-    //console.log(JSON.stringify(Array.from(proxyConfigsMap)));
+    console.log(JSON.stringify(Array.from(proxyConfigsMap)));
 }
 
 async function proxyConfigsGet() {
