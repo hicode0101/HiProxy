@@ -1,38 +1,55 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../lib/layui/css/layui.css">
-    
-  </head>
 
-  <body class="layui-bg-gray">
-    
-    <div class="layui-panel" style="width: 200px; margin: 1px;">
-      <ul class="layui-menu">
-        <li id="btn_direct"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-screen-restore"></i>Direct</div></li>
-        <li id="btn_system"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-windows"></i>System</div></li>
-        <li class="layui-menu-item-divider"></li>
-        <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome"></i>Http-8080</div></li>
-        <li><div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome"></i>Socks5-1080</div></li>
-        <li id="btn_open"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome"></i>Socks5-10808</div></li>        
-        <li class="layui-menu-item-divider"></li>
-        <li id="btn_options"><div class="layui-menu-body-title"><i class="layui-icon layui-icon-set-fill"></i>Options</div></li>
-      </ul>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../lib/layui/css/layui.css">
+
+</head>
+
+<body class="layui-bg-gray">
+
+  <div class="layui-panel" style="width: 200px; margin: 1px;">
+    <ul class="layui-menu" id="popup_menu">
+      <li id="btn_direct">
+        <div class="layui-menu-body-title"><i class="layui-icon layui-icon-screen-restore" style="color: #9b9b9b;"></i>Direct</div>
+      </li>
+      <li id="btn_system">
+        <div class="layui-menu-body-title"><i class="layui-icon layui-icon-windows" style="color: #000000;"></i>System</div>
+      </li>
+      <li class="layui-menu-item-divider"></li>
+      <li lay-on="open" pid="http-8080">
+        <div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome" style="color: #4477bb;"></i>http-8080</div>
+      </li>
+      <li lay-on="open" pid="socks5-1080">
+        <div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome" style="color: #8169ff;"></i>socks5-1080</div>
+      </li>
+      <li lay-on="open" pid="socks5-10808">
+        <div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome" style="color: #d497ee;"></i>socks5-10808</div>
+      </li>
+      <li lay-on="open" pid="burp-8080">
+        <div class="layui-menu-body-title"><i class="layui-icon layui-icon-chrome" style="color: #55bb55;"></i>burp-8080</div>
+      </li>
+      <li class="layui-menu-item-divider"></li>
+      <li id="btn_options">
+        <div class="layui-menu-body-title"><i class="layui-icon layui-icon-set-fill"></i>Options</div>
+      </li>
+    </ul>
 
 
-      
-    </div>
 
-    
+  </div>
 
-    <script src="../lib/layui/layui.js"></script>
-    <script src="../js/layinit.js"></script>
-    <script src="../js/popup.js"></script>
-  </body>
+
+  <script id="listTpl" type="text/html">
+
+  </script>
+
+  <script src="../lib/layui/layui.js"></script>
+  <script src="../js/layinit.js"></script>
+  <script src="../js/popup.js"></script>
+</body>
+
 </html>
-
-
-

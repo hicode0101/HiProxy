@@ -1,16 +1,16 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    document.getElementById('btn_open').addEventListener('click', (e) => {
+    // document.getElementById('btn_open').addEventListener('click', (e) => {
 
-        testProxy();
+    //     //testProxy();
 
-        //proxyConfigsInit();
-        //currProxyPidSet("socks5-10808");
-        //openCurrProxy();
+    //     //proxyConfigsInit();
+    //     currProxyPidSet("socks5-10808");
+    //     openCurrProxy();
         
 
-    });
+    // });
 
     document.getElementById('btn_direct').addEventListener('click', (e) => {
         directProxy();
@@ -31,15 +31,108 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    
+
     //
     proxyConfigsInit();
 
 
 });
 
+function getDefaultConfigs() {
+    proxyConfigsMap = new Map();
 
+    proxyConfig = {
+        pid: "http-8080",
+        name: "http-8080",
+        color: "#4477bb",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "http",
+                host: "127.0.0.1",
+                port: 8080,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
+    };
+
+    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
+
+    proxyConfig = {
+        pid: "socks5-1080",
+        name: "socks5-1080",
+        color: "#8169ff",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "socks5",
+                host: "127.0.0.1",
+                port: 1080,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
+    };
+
+    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
+
+    proxyConfig = {
+        pid: "socks5-10808",
+        name: "socks5-10808",
+        color: "#d497ee",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "socks5",
+                host: "127.0.0.1",
+                port: 10808,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
+    };
+
+    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
+
+
+    proxyConfig = {
+        pid: "burp-8080",
+        name: "burp-8080",
+        color: "#55bb55",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "http",
+                host: "127.0.0.1",
+                port: 8080,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
+    };
+
+    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
+
+    return proxyConfigsMap;
+}
 
 function reDrawIcon(outColor, innerColor) {
+    console.log(outColor, innerColor);
+
     const canvas = new OffscreenCanvas(16, 16);
     const context = canvas.getContext('2d');
     context.scale(16, 16);
@@ -75,6 +168,10 @@ function circleDraw(ctx, outerCircleColor, innerCircleColor) {
 }
 
 function closePopup() {
+    closeExtPopup();
+}
+
+function closeExtPopup() {
     window.close();
     // If the popup is opened as a tab, the above won't work. Let's reload then.
     document.body.style.opacity = 0;
@@ -88,8 +185,8 @@ async function openCurrProxy() {
     proxyConfigsGetByCallback((result)=>{
         proxyConfigs = result;
         if(proxyConfigs instanceof Map){
-            if (currProxyPid != undefined && proxyConfigsMap.has(currProxyPid) == true) {
-                proxyConfig = proxyConfigsMap.get(currProxyPid);
+            if (currProxyPid != undefined && proxyConfigs.has(currProxyPid) == true) {
+                proxyConfig = proxyConfigs.get(currProxyPid);
                 openProxy(proxyConfig);
             } else {
                 directProxy();
@@ -112,7 +209,7 @@ function testProxy(){
     var config = {
         mode: "fixed_servers",
         rules: {
-            singleProxy : {
+            fallbackProxy : {
                 scheme: "socks5",
                 host: "127.0.0.1",
                 port: 10808,
@@ -124,6 +221,22 @@ function testProxy(){
             ]
         }
     };
+
+    // var config = {
+    //     mode: "fixed_servers",
+    //     rules: {
+    //         singleProxy : {
+    //             scheme: "http",
+    //             host: "127.0.0.1",
+    //             port: 8080,
+    //         },
+    //         bypassList: [
+    //             "127.0.0.1",
+    //             "::1",
+    //             "localhost"
+    //         ]
+    //     }
+    // };
     
     chrome.proxy.settings.set({value: config, scope: 'regular'}, console.log("porxy switched"));
 
@@ -140,9 +253,13 @@ function openProxy(proxyConfig) {
 
     var _config = {
         mode: proxyConfig.mode,
-        rules: proxyConfig.rules
+        rules: {
+            singleProxy : proxyConfig.rules.singleProxy,
+            bypassList: proxyConfig.rules.bypassList
+        }
     };
 
+    console.log("proxy.settings.set", _config);
     chrome.proxy.settings.set({ value: _config, scope: 'regular' }, console.log("porxy switched"));
 
     showCurrProxy();
@@ -306,98 +423,18 @@ function proxyConfigsClear() {
     return storageRemove("proxyConfigs");
 }
 
+
+
 async function proxyConfigsInit() {
     console.log("proxyConfigsInit");
 
-    storageClear();
+    currProxyPid = await currProxyPidGet();
+    console.log("currProxyPid", currProxyPid);
 
-    proxyConfigsMap = new Map();
+    //storageClear();
 
-    proxyConfig = {
-        pid: "http-8080",
-        name: "http-8080",
-        color: "#99dd99",
-        mode: "fixed_servers",
-        rules: {
-            fallbackProxy: {
-                scheme: "http",
-                host: "127.0.0.1",
-                port: 8080,
-            },
-            bypassList: [
-                "127.0.0.1",
-                "::1",
-                "localhost"
-            ]
-        }
-    };
-
-    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
-
-    proxyConfig = {
-        pid: "socks5-1080",
-        name: "socks5-1080",
-        color: "#99dd99",
-        mode: "fixed_servers",
-        rules: {
-            fallbackProxy: {
-                scheme: "socks5",
-                host: "127.0.0.1",
-                port: 1080,
-            },
-            bypassList: [
-                "127.0.0.1",
-                "::1",
-                "localhost"
-            ]
-        }
-    };
-
-    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
-
-    proxyConfig = {
-        pid: "socks5-10808",
-        name: "socks5-10808",
-        color: "#99dd99",
-        mode: "fixed_servers",
-        rules: {
-            fallbackProxy: {
-                scheme: "socks5",
-                host: "127.0.0.1",
-                port: 10808,
-            },
-            bypassList: [
-                "127.0.0.1",
-                "::1",
-                "localhost"
-            ]
-        }
-    };
-
-    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
-
-
-    proxyConfig = {
-        pid: "burp-8080",
-        name: "burp-8080",
-        color: "#99dd99",
-        mode: "fixed_servers",
-        rules: {
-            fallbackProxy: {
-                scheme: "http",
-                host: "127.0.0.1",
-                port: 8080,
-            },
-            bypassList: [
-                "127.0.0.1",
-                "::1",
-                "localhost"
-            ]
-        }
-    };
-
-    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
-
+    
+    proxyConfigsMap = getDefaultConfigs();
 
     await proxyConfigsSet(proxyConfigsMap);
 
@@ -412,9 +449,26 @@ layui.use(function () {
     //var dropdown = layui.dropdown;
     var layer = layui.layer;
     var util = layui.util;
+    var laytpl = layui.laytpl;
 
     //layui.off('click', 'dropdown');
+    
+    util.on('lay-on', {
+        open: layui.throttle(function(othis) {
+            //testProxy();
 
+            //console.log(this);
+            console.log(othis.attr("pid"));
+            //layer.tips(othis.html(), this);
+            pid = othis.attr("pid");
+            currProxyPidSet(pid);
+            openCurrProxy();
+
+        }, 10) // 多少毫秒内不重复执行
+      }, {
+        trigger: 'click'
+      }
+    );
 
 });
 
