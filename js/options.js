@@ -1,6 +1,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    document.getElementById('btn_config_save').addEventListener('click', (e) => {
+        
+        proxyConfigsSave();
+
+    });
+
     document.getElementById('btn_config_reset').addEventListener('click', (e) => {
         
         proxyConfigsInit();

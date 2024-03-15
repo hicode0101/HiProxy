@@ -90,7 +90,8 @@ function getDefaultConfigs() {
             bypassList: [
                 "127.0.0.1",
                 "::1",
-                "localhost"
+                "localhost",
+                "mon.zijieapi.com"
             ]
         }
     };
@@ -297,6 +298,18 @@ async function proxyConfigsInit() {
 
     //proxyConfigsMap = await proxyConfigsGet();
     ///console.log(proxyConfigsMap);
+
+}
+
+async function proxyConfigsSave() {
+    json = document.getElementById('txt_input').value
+    //console.log(json);
+
+    await chrome.storage.local.set({"proxyConfigs": json});
+
+    layer.msg('已写入缓存中', {icon: 1}, function(){
+        // layer.msg('提示框关闭后的回调');
+      });
 
 }
 
