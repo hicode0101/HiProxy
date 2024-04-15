@@ -90,8 +90,11 @@ function getDefaultConfigs() {
             bypassList: [
                 "127.0.0.1",
                 "::1",
-                "localhost",
-                "mon.zijieapi.com"
+                ".google.com",
+                ".google-analytics.com",
+                ".googleapis.com",
+                "mcs.zijieapi.com",
+                "mon.zijieapi.com"               
             ]
         }
     };
