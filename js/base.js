@@ -93,12 +93,14 @@ function getDefaultConfigs() {
                 ".google.com",
                 ".google-analytics.com",
                 ".googleapis.com",
+                "mcs.volceapplog.com",
+                "mssdk.bytedance.com",
                 "mcs.zijieapi.com",
                 "mon.zijieapi.com"               
             ]
         }
     };
-
+    
     proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
 
     return proxyConfigsMap;
