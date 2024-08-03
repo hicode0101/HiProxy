@@ -75,6 +75,47 @@ function getDefaultConfigs() {
 
     proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
 
+    proxyConfig = {
+        pid: "socks5-7891",
+        name: "socks5-7891",
+        color: "#9117c5",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "socks5",
+                host: "127.0.0.1",
+                port: 7891,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
+    };
+
+    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
+
+    proxyConfig = {
+        pid: "http-7890",
+        name: "http-7890",
+        color: "#0b4da4",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "http",
+                host: "127.0.0.1",
+                port: 7890,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
+    };
+
+    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
 
     proxyConfig = {
         pid: "burp-8080",
