@@ -1,8 +1,0 @@
-{
-    "plugin_name": {
-        "message": "HiProxy"      
-    },
-    "plugin_desc": {
-        "message": "A proxy extension for Chrome"      
-    }
-}
