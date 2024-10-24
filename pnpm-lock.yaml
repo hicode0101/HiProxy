@@ -18,6 +18,9 @@ importers:
         specifier: ^3.5.11
         version: 3.5.12(typescript@5.6.3)
     devDependencies:
+      '@vicons/fluent':
+        specifier: ^0.12.0
+        version: 0.12.0
       '@wxt-dev/module-vue':
         specifier: ^1.0.1
         version: 1.0.1(vite@5.4.10(@types/node@22.7.9))(vue@3.5.12(typescript@5.6.3))(wxt@0.19.13(@types/node@22.7.9)(rollup@4.24.0))
@@ -30,11 +33,14 @@ importers:
       vfonts:
         specifier: ^0.0.3
         version: 0.0.3
+      vue-router:
+        specifier: ^4.4.5
+        version: 4.4.5(vue@3.5.12(typescript@5.6.3))
       vue-tsc:
         specifier: ^2.1.6
         version: 2.1.6(typescript@5.6.3)
       wxt:
-        specifier: ^0.19.11
+        specifier: ^0.19.13
         version: 0.19.13(@types/node@22.7.9)(rollup@4.24.0)
 
 packages:
@@ -408,6 +414,9 @@ packages:
   '@types/yauzl@2.10.3':
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
 
+  '@vicons/fluent@0.12.0':
+    resolution: {integrity: sha512-ATCiqPuiJ6RI5GBlD3BIpZ9Xw4MsCA4RpI5oR6MCti4quS4mX1Gp6N74FCzw7lgOj+80rV4HMKhZTVInwimpVQ==}
+
   '@vicons/ionicons4@0.12.0':
     resolution: {integrity: sha512-i+7YwlpCrqD6m9esbZLy1bpVQlh4CKugtS3OzgfNw6BLTQQK6HT7drktaJgcESj/BTr4avdNbAtMQXx56wSVMg==}
 
@@ -444,6 +453,9 @@ packages:
 
   '@vue/compiler-vue2@2.7.16':
     resolution: {integrity: sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A==}
+
+  '@vue/devtools-api@6.6.4':
+    resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
   '@vue/language-core@2.1.6':
     resolution: {integrity: sha512-MW569cSky9R/ooKMh6xa2g1D0AtRKbL56k83dzus/bx//RDJk24RHWkMzbAlXjMdDNyxAaagKPRquBIxkxlCkg==}
@@ -2084,6 +2096,11 @@ packages:
   vscode-uri@3.0.8:
     resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==}
 
+  vue-router@4.4.5:
+    resolution: {integrity: sha512-4fKZygS8cH1yCyuabAXGUAsyi1b2/o/OKgu/RUb+znIYOxPRxdkytJEx+0wGcpBE1pX6vUgh5jwWOKRGvuA/7Q==}
+    peerDependencies:
+      vue: ^3.2.0
+
   vue-tsc@2.1.6:
     resolution: {integrity: sha512-f98dyZp5FOukcYmbFpuSCJ4Z0vHSOSmxGttZJCsFeX0M4w/Rsq0s4uKXjcSRsZqsRgQa6z7SfuO+y0HVICE57Q==}
     hasBin: true
@@ -2480,6 +2497,8 @@ snapshots:
       '@types/node': 22.7.9
     optional: true
 
+  '@vicons/fluent@0.12.0': {}
+
   '@vicons/ionicons4@0.12.0': {}
 
   '@vicons/ionicons5@0.12.0': {}
@@ -2535,6 +2554,8 @@ snapshots:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
+
+  '@vue/devtools-api@6.6.4': {}
 
   '@vue/language-core@2.1.6(typescript@5.6.3)':
     dependencies:
@@ -4216,6 +4237,11 @@ snapshots:
       vue: 3.5.12(typescript@5.6.3)
 
   vscode-uri@3.0.8: {}
+
+  vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)):
+    dependencies:
+      '@vue/devtools-api': 6.6.4
+      vue: 3.5.12(typescript@5.6.3)
 
   vue-tsc@2.1.6(typescript@5.6.3):
     dependencies:
