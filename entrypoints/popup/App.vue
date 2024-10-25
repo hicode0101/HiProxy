@@ -6,7 +6,9 @@
     <n-notification-provider>
       <n-modal-provider>
         <n-dialog-provider>
+          <Suspense>
           <Popup/>
+          </Suspense>
         </n-dialog-provider>
       </n-modal-provider>
     </n-notification-provider>

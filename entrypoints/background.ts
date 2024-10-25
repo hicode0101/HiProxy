@@ -1,6 +1,8 @@
+//import { directProxy } from "@/utils/base";
+
 export default defineBackground(() => {
   console.log('Hello background!', { id: browser.runtime.id });
-
+  proxyConfigsInit();
 
   browser.runtime.onInstalled.addListener((e: any) => {
     console.log("onInstalled");
@@ -12,16 +14,18 @@ export default defineBackground(() => {
       browser.tabs.create({ url: "/options.html" });
     }
 
-    //directProxy();
+    directProxy();
 
   });
 
   browser.runtime.onStartup.addListener((event: any) => {
     console.log("onStartup");
 
-    //directProxy();
+    proxyConfigsInit();
+    directProxy();
 
   });
 
+  
 
 });

@@ -25,7 +25,7 @@ import { MdAnalytics } from '@vicons/ionicons4'
 
 const message = useMessage()
 
-const menuOptions: MenuOption[] = []
+let menuOptions: MenuOption[] = []
 
 
 menuOptions.push({
@@ -51,17 +51,31 @@ menuOptions.push({
 });
 
 
-menuOptions.push({
-    label: 'burp-8080',
-    key: 'pop-menu-8080',
-    icon: renderColorIcon(ChromeIcon, "#8a2be2")
+await browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
+    console.log("renderProxyConfigList-1", menuOptions);
+    console.log("GetValue is ", result);
+    if (result.proxyConfigs == undefined) {
+        console.log("GetValue is undefined");
+        
+    } else {
+        let proxyConfigs = new Map(JSON.parse(result.proxyConfigs));
+        console.log("map is ", proxyConfigs);
+        proxyConfigs.forEach((proxyConfig, key) => {
+            console.log(key + " = " + proxyConfig);
+            menuOptions.push({
+                label: proxyConfig.pid,
+                key: proxyConfig.pid,
+                icon: renderColorIcon(ChromeIcon, proxyConfig.color)
+            });
+        });
+        
+    }
+    
+    
+
 });
 
-menuOptions.push({
-    label: '1234567890123456789',
-    key: 'pop-menu-8081',
-    icon: renderColorIcon(ChromeIcon, "#55bb55")
-});
+console.log("renderProxyConfigList-2", menuOptions);
 
 menuOptions.push({
     key: 'divider-bottom',
@@ -101,10 +115,23 @@ function onMenuChange(key: string, item: MenuOption) {
             break;
         default:
             console.log("^_^");
-            changeProxy(key, item);
+            onChangeProxy(key, item);
     }
     
     closePopup();
+}
+
+function closePopup1() {
+    //do nothing for testing
+}
+
+function closePopup() {
+    
+    window.close();
+    
+    // If the popup is opened as a tab, the above won't work. Let's reload then.
+    document.body.style.opacity = "0";
+    setTimeout(function () { history.go(0); }, 300);
 }
 
 function openOptions() {
@@ -118,28 +145,11 @@ function openOptions2() {
 
 }
 
-function directProxy() {
-
-    browser.proxy.settings.set({ value: { mode: "direct" }, scope: "regular" });
-
-    showCurrProxy();
-    reDrawIcon("#9b9b9b", "");
-    closePopup();
-
-}
-
-function systemProxy() {
-
-    browser.proxy.settings.set({ value: { mode: "system" }, scope: "regular" });
-
-    showCurrProxy();
-    reDrawIcon("#000000", "");
-    closePopup();
-
-}
 
 function onChangeProxy(key: string, item: MenuOption) {
 
+    currProxyPidSet(key);
+    openCurrProxy();
     
 }
 
@@ -161,135 +171,26 @@ function changeProxy1() {
     });
 }
 
-function closePopup() {
-    window.close();
-    // If the popup is opened as a tab, the above won't work. Let's reload then.
-    document.body.style.opacity = "0";
-    setTimeout(function () { history.go(0); }, 300);
-}
 
-function showCurrProxy() {
-    browser.proxy.settings.get({ 'incognito': false }, function (config: any) {
-        console.log(JSON.stringify(config));
-    });
-}
-
-function reDrawIcon(outColor: string, innerColor: string) {
-    console.log(outColor, innerColor);
-
-    const canvas = new OffscreenCanvas(16, 16);
-    const context = canvas.getContext('2d');
-    if (!context) {
-        console.error('Failed to get 2D rendering context');
-        return;
-    }
-    context.scale(16, 16);
-    context.clearRect(0, 0, 1, 1);
-    //context.fillStyle = '#00FF00';
-    //circleDraw(context, "#4477bb");
-    //circleDraw(context, "#4477bb","#00FF00");
-    circleDraw(context, outColor, innerColor);
-    context.setTransform(1, 0, 0, 1, 0, 0);
-    const imageData = context.getImageData(0, 0, 16, 16);
-    //chrome.action.setIcon({ imageData: imageData }, () => { /* ... */ });
-    browser.action.setIcon({ imageData: imageData }, () => { /* ... */ });
-
-}
-
-function circleDraw(ctx: OffscreenCanvasRenderingContext2D, outerCircleColor: string, innerCircleColor: string) {
-    ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = outerCircleColor;
-    ctx.beginPath();
-    ctx.arc(0.5, 0.5, 0.5, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.fill();
-
-    if (innerCircleColor != null && innerCircleColor != "") {
-        ctx.fillStyle = innerCircleColor;
-    } else {
-        ctx.globalCompositeOperation = "destination-out";
-    }
-
-    ctx.beginPath();
-    ctx.arc(0.5, 0.5, 0.25, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.fill();
-}
-
-
-
-async function currProxyPidSet(currProxyPid: string) {
-    await browser.storage.local.set({"currProxyPid": currProxyPid});
+async function renderProxyConfigList(callback: Function) {
     
-}
-
-function currProxyPidRemove() {
-    browser.storage.local.remove("currProxyPid");
-}
-
-async function currProxyPidGet() {
-    
-    const _result = await browser.storage.local.get("currProxyPid");
-    console.log(_result);
-    //console.log(_result.currProxyPid);
-    return _result.currProxyPid;
-}
-
-async function openCurrProxy() {
-    let currProxyPid = await currProxyPidGet();
-    console.log("currProxyPid", currProxyPid);
-
     proxyConfigsGetByCallback((result: Map<string,any>)=>{
         let proxyConfigs = result;
         if(proxyConfigs instanceof Map){
-            if (currProxyPid != undefined && proxyConfigs.has(currProxyPid) == true) {
-                let proxyConfig = proxyConfigs.get(currProxyPid);
-                changeProxy(proxyConfig);
-            } else {
-                directProxy();
-            }
+            proxyConfigs.forEach((value, key) => {
+                console.log(key + " = " + value);
+                callback(value);
+            });
         }else{
             console.error("proxyConfigs is not a map");
             directProxy();
         }
         
     });
-    
-
-}
-
-function changeProxy(proxyConfig: any) {
-
-    var _config = {
-        mode: proxyConfig.mode,
-        rules: proxyConfig.rules
-    };
-
-    console.log("proxy.settings.set", _config);
-    browser.proxy.settings.set({ value: _config, scope: 'regular' }, console.log("porxy switched"));
-
-
-    reDrawIcon(proxyConfig.color, "");
-    showCurrProxy();
-}
-
-function proxyConfigsGetByCallback(callback:Function) {
-    browser.storage.local.get(["proxyConfigs"]).then((result:any) => {
-        console.log("GetValue is ", result);
-        if(result.proxyConfigs == undefined){
-            console.log("GetValue is undefined");
-            callback(new Map());
-        }else{
-            let map = new Map(JSON.parse(result.proxyConfigs));
-            console.log("map is ", map);
-            callback(map);
-        }
-        
-    });
-   
 }
 
 
+console.log("setup end");
 </script>
 
 <style scoped></style>
