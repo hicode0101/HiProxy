@@ -11,7 +11,7 @@ export default defineBackground(() => {
 
     if (e.reason === 'install') {
       //proxyConfigsInit();
-      browser.tabs.create({ url: "/options.html" });
+      //browser.tabs.create({ url: "/options.html" });
     }
 
     directProxy();

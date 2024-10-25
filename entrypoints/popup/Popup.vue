@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 import type { Component } from 'vue'
-import { defineComponent, h } from 'vue'
+import { defineComponent, h, reactive } from 'vue'
 import { NIcon, useMessage } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import { RouterLink } from 'vue-router'
@@ -25,13 +25,13 @@ import { MdAnalytics } from '@vicons/ionicons4'
 
 const message = useMessage()
 
-let menuOptions: MenuOption[] = []
+let menuOptions: MenuOption[] = reactive([]);
 
 
 menuOptions.push({
     label: 'Direct',
     key: 'pop-menu-Direct',
-    icon: renderIcon(DirectIcon)
+    icon: renderColorIcon(DirectIcon, "#9b9b9b")
 });
 
 menuOptions.push({
@@ -51,7 +51,7 @@ menuOptions.push({
 });
 
 
-await browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
+browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
     console.log("renderProxyConfigList-1", menuOptions);
     console.log("GetValue is ", result);
     if (result.proxyConfigs == undefined) {
@@ -68,6 +68,22 @@ await browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
                 icon: renderColorIcon(ChromeIcon, proxyConfig.color)
             });
         });
+
+        menuOptions.push({
+            key: 'divider-bottom',
+            type: 'divider',
+            props: {
+                style: {
+                    marginLeft: '32px'
+                }
+            }
+        });
+
+        menuOptions.push({
+            label: 'Options',
+            key: 'pop-menu-Options',
+            icon: renderIcon(OptionsIcon),
+        });
         
     }
     
@@ -77,21 +93,7 @@ await browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
 
 console.log("renderProxyConfigList-2", menuOptions);
 
-menuOptions.push({
-    key: 'divider-bottom',
-    type: 'divider',
-    props: {
-        style: {
-            marginLeft: '32px'
-        }
-    }
-});
 
-menuOptions.push({
-    label: 'Options',
-    key: 'pop-menu-Options',
-    icon: renderIcon(OptionsIcon),
-});
 
 
 function renderIcon(icon: Component) {
@@ -151,24 +153,6 @@ function onChangeProxy(key: string, item: MenuOption) {
     currProxyPidSet(key);
     openCurrProxy();
     
-}
-
-function changeProxy1() {
-    browser.proxy.settings.set({
-        value: {
-            mode: "fixed_servers",
-            rules: {
-                singleProxy: {
-                    scheme: "http",
-                    host: "127.0.0.1",
-                    port: 8080
-                }
-            }
-        },
-        scope: "regular"
-    }, function (result: any) {
-        console.log(result);
-    });
 }
 
 
