@@ -13,15 +13,12 @@ import { NIcon, useMessage } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 import {
-    HomeOutline as HomeIcon,
-    PersonOutline as PersonIcon,
     LogoChrome as ChromeIcon,
     LogoWindows as SystemIcon,
     SettingsOutline as OptionsIcon
 } from '@vicons/ionicons5'
 
 import { ArrowSwap24Filled as DirectIcon } from '@vicons/fluent'
-import { MdAnalytics } from '@vicons/ionicons4'
 
 const message = useMessage()
 
@@ -52,7 +49,7 @@ menuOptions.push({
 
 
 browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
-    console.log("renderProxyConfigList-1", menuOptions);
+    
     console.log("GetValue is ", result);
     if (result.proxyConfigs == undefined) {
         console.log("GetValue is undefined");
@@ -90,8 +87,6 @@ browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
     
 
 });
-
-console.log("renderProxyConfigList-2", menuOptions);
 
 
 

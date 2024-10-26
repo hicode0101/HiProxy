@@ -18,12 +18,12 @@
                             <template #default="{ value }">
                                 <div style="display: flex; align-items: center; width: 90%;padding-left: 20px;">
                                     <n-color-picker v-model:value="value.color" :modes="['hex']" :show-alpha="false" :style="{ width: '90px' }" />
-                                    <n-input v-model:value="value.pname" type="text" placeholder="代理配置的名称，例如：http-8080，方便自己区分" :style="{ width: '33%' }" />
-                                    <n-select v-model:value="value.scheme" :style="{ width: '120px' }" :options="proxyTypeOptions" />
+                                    <n-input v-model:value="value.name" type="text" placeholder="代理配置的名称，例如：http-8080，方便自己区分" :style="{ width: '33%' }" />
+                                    <n-select v-model:value="value.rules.singleProxy.scheme" :style="{ width: '120px' }" :options="proxyTypeOptions" />
                                     
                                     
-                                    <n-input v-model:value="value.host" type="text" placeholder="host" :style="{ width: '300px' }"/>
-                                    <n-input v-model:value="value.port" type="text" placeholder="port" :style="{ width: '150px' }"/>
+                                    <n-input v-model:value="value.rules.singleProxy.host" type="text" placeholder="host" :style="{ width: '300px' }"/>
+                                    <n-input-number v-model:value="value.rules.singleProxy.port" :show-button="false" :style="{ width: '150px' }"/>
                                 </div>
                             </template>
                         </n-dynamic-input>
@@ -82,9 +82,10 @@
 
 <script lang="ts" setup>
 import { defineComponent, h, reactive, ref } from 'vue'
-import { NIcon, useMessage } from 'naive-ui'
+import { useDialog, useMessage } from 'naive-ui'
 
 const message = useMessage()
+const dialog = useDialog()
 
 function openPopup() {
     window.location.href = "./popup.html";
@@ -98,11 +99,22 @@ function openOptions() {
 
 function onCreateConfig() {
     return {
-        pname: 'http-8080',
-        color: '#9F9F9F',
-        scheme: "HTTP",
-        host: "127.0.0.1",
-        port: "8080"
+        pid: "",
+        name: "",
+        color: "#B9B9B9",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "HTTP",
+                host: "127.0.0.1",
+                port: 8080,
+            },
+            bypassList: [
+                "127.0.0.1",
+                "::1",
+                "localhost"
+            ]
+        }
         
     }
 }
@@ -115,35 +127,22 @@ let proxyTypeOptions = ['HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5'].map(
         })
       );
 
-let proxyConfigList = ref([
-    {
-        pname: 'http-8080',
-        color: '#9F9F9F',
-        scheme: "HTTP",
-        host: "127.0.0.1",
-        port: "8080"
-    }
-]);
+let proxyConfigList: any = ref([]);
 
 
 browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
-    console.log("renderProxyConfigList-1", proxyConfigList);
+    
     console.log("GetValue is ", result);
     if (result.proxyConfigs == undefined) {
         console.log("GetValue is undefined");
         
     } else {
+        console.log("get storage:",result.proxyConfigs);
         let proxyConfigs = new Map(JSON.parse(result.proxyConfigs));
         console.log("map is ", proxyConfigs);
         proxyConfigs.forEach((proxyConfig, key) => {
             console.log(key + " = " + proxyConfig);
-            proxyConfigList.value.push({
-                pname: proxyConfig.pid,
-                color: proxyConfig.color,
-                scheme: proxyConfig.rules.singleProxy.scheme.toUpperCase(),
-                host: proxyConfig.rules.singleProxy.host,
-                port: proxyConfig.rules.singleProxy.port.toString()
-            });
+            proxyConfigList.value.push(proxyConfig);
         });
 
         
@@ -153,12 +152,55 @@ browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
 
 });   
 
-function saveConfigs() {
-    message.info("功能继续完善中...");
+async function saveConfigs() {
+    //message.info("saveConfigs ...");
+
+    //console.log(proxyConfigList.value);
+    
+    let proxyConfigsMap = new Map<string,any>();
+    
+    proxyConfigList.value.forEach((element: any) => {
+        console.log(element.name);
+        element.pid = element.name;
+        proxyConfigsMap.set(element.pid, element);
+        
+    });
+    
+    let json = JSON.stringify(Array.from(proxyConfigsMap));
+    
+    await browser.storage.local.set({"proxyConfigs": json});
+
+    
+    //setTimeout(() => {refreshPage();},2000);
+
+    message.success('保存成功',{duration:2000, onAfterLeave: () => {refreshPage();}});
+    
 }
 
 function resetConfigs() {
-    message.info("reset 功能继续完善中...");
+    //message.info("resetConfigs ...");
+    
+    dialog.warning({
+          title: '操作警告',
+          content: '您确定要重置全部配置吗？',
+          positiveText: '确定重置',
+          negativeText: '取消',
+          maskClosable: false,
+          onPositiveClick: () => {
+            proxyConfigsInit();            
+            refreshPage();
+          },
+          onMaskClick: () => {
+            message.warning('有个警告弹窗，您看到了吗')
+          },
+          onEsc: () => {
+            message.info('通过 esc 取消')
+          }
+        });
+}
+
+function refreshPage() {
+  window.location.reload();
 }
 
 </script>

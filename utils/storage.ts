@@ -26,6 +26,14 @@ export function currProxyPidRemove() {
     browser.storage.local.remove("currProxyPid");
 }
 
+async function proxyConfigsGet() {
+    const _result = await browser.storage.local.get("proxyConfigs");
+    console.log(_result);
+    console.log(_result.proxyConfigs);
+    let map = new Map(JSON.parse(_result.proxyConfigs));
+    return map;
+   
+}
 
 export function proxyConfigsGetByCallback(callback: Function) {
     browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
@@ -43,6 +51,42 @@ export function proxyConfigsGetByCallback(callback: Function) {
 
 }
 
+async function storageSet(jsonData : string) {
+    console.log("storageSet", jsonData);
+    //chrome.storage.local.set(jsonData).then(() => {
+    //    console.log("Value is set");
+    //});
+
+    await browser.storage.local.set(jsonData);
+
+}
+
+async function storageGet(keyName : string) {
+
+    //_result = {};
+    //await chrome.storage.local.get(keyName).then((result) => {
+    //   console.log("storageGet is ", keyName, JSON.stringify(result));
+    //   _result = result;
+    //});
+
+    const _result = await browser.storage.local.get(keyName);
+    console.log(_result);
+    //console.log(_result.currProxyPid);
+
+    return _result;
+}
+
+export function storageRemove(keyName : string) {
+    browser.storage.local.remove(keyName).then(() => {
+        console.log("Value removed");
+    });
+}
+
+export function storageClear() {
+    browser.storage.local.clear();
+    console.log("storageClear");
+}
+
 export function getDefaultConfigs() {
     let proxyConfigsMap = new Map();
 
@@ -53,7 +97,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "http",
+                scheme: "HTTP",
                 host: "127.0.0.1",
                 port: 8080,
             },
@@ -74,7 +118,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "socks5",
+                scheme: "SOCKS5",
                 host: "127.0.0.1",
                 port: 1080,
             },
@@ -95,7 +139,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "socks5",
+                scheme: "SOCKS5",
                 host: "127.0.0.1",
                 port: 10808,
             },
@@ -116,7 +160,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "socks5",
+                scheme: "SOCKS5",
                 host: "127.0.0.1",
                 port: 7891,
             },
@@ -137,7 +181,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "http",
+                scheme: "HTTP",
                 host: "127.0.0.1",
                 port: 7890,
             },
@@ -158,7 +202,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "http",
+                scheme: "HTTP",
                 host: "127.0.0.1",
                 port: 8080,
             },
