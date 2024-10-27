@@ -12,6 +12,12 @@ vue3 + wxt + ts
 代码框架采用 vue3 + wxt + ts
 
 
+项目代码完全开源，有兴趣的可以自己尝试编译打包，或者省事的师傅可以直接下载我打包好的 zip 文件，直达下载地址：
+
+https://github.com/hicode0101/HiProxy/releases
+
+
+
 使用方式：
 1、进chrome 浏览器扩展，直达地址 chrome://extensions/
 2、开启开发者模式
