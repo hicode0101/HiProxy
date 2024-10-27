@@ -159,7 +159,7 @@ function queryMyIp() {
 }
 
 
-function onChangeProxy(key: string, item: MenuOption) {
+async function onChangeProxy(key: string, item: MenuOption) {
 
     currProxyPidSet(key);
     openCurrProxy();

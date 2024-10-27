@@ -75,7 +75,7 @@
                                     </tr>
                                     <tr>
                                         <td>{{ browser.i18n.getMessage('options_about_version') }}：</td>
-                                        <td>v3.1.0</td>
+                                        <td>v3.1.2</td>
                                     </tr>
                                     <tr>
                                         <td>{{ browser.i18n.getMessage('options_about_author') }}：</td>
@@ -306,6 +306,8 @@ async function saveConfigs() {
     
     //setTimeout(() => {refreshPage();},2000);
 
+    openCurrProxy();
+    
     message.success(browser.i18n.getMessage('options_msg_save_success'),{duration:2000, onAfterLeave: () => {refreshPage();}});
     
 }

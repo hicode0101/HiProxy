@@ -8,14 +8,6 @@ export async function currProxyPidGet() {
     return _result.currProxyPid;
 }
 
-export async function proxyConfigsSet(proxyConfigsMap: Map<string, any>) {
-    //proxyConfigsMap = new Map();
-    let json = JSON.stringify(Array.from(proxyConfigsMap));
-    await browser.storage.local.set({ "proxyConfigs": json });
-    console.log(proxyConfigsMap);
-    console.log(JSON.stringify(Array.from(proxyConfigsMap)));
-}
-
 
 export async function currProxyPidSet(currProxyPid: string) {
     await browser.storage.local.set({ "currProxyPid": currProxyPid });
@@ -25,6 +17,16 @@ export async function currProxyPidSet(currProxyPid: string) {
 export function currProxyPidRemove() {
     browser.storage.local.remove("currProxyPid");
 }
+
+
+export async function proxyConfigsSet(proxyConfigsMap: Map<string, any>) {
+    //proxyConfigsMap = new Map();
+    let json = JSON.stringify(Array.from(proxyConfigsMap));
+    await browser.storage.local.set({ "proxyConfigs": json });
+    console.log(proxyConfigsMap);
+    console.log(JSON.stringify(Array.from(proxyConfigsMap)));
+}
+
 
 async function proxyConfigsGet() {
     const _result = await browser.storage.local.get("proxyConfigs");

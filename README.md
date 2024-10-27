@@ -11,9 +11,15 @@ vue3 + wxt + ts
 
 代码框架采用 vue3 + wxt + ts
 
+
+使用方式：
+1、进chrome 浏览器扩展，直达地址 chrome://extensions/
+2、开启开发者模式
+3、把这个 zip 文件直接拖进去，就可以了，不用解压。
+
 ```
 
-# Screnshot（UI截图）
+# Screenshot（UI截图）
 
 
 <img src="./screenshot/screen_1.png" width="600" />

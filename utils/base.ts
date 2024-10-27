@@ -5,13 +5,17 @@ export function everywherefunc(){
 
 
 
-export function directProxy() {
+export async function directProxy() {
 
     browser.proxy.settings.set({ value: { mode: "direct" }, scope: "regular" });
 
+    
     showCurrProxy();
     reDrawIcon("#9b9b9b", "");
+    currProxyPidRemove();
     
+    let currProxyPid = await currProxyPidGet();
+    console.log("currProxyPid", currProxyPid);
 
 }
 
@@ -21,7 +25,7 @@ export function systemProxy() {
 
     showCurrProxy();
     reDrawIcon("#000000", "");
-    
+    currProxyPidRemove();
 
 }
 
@@ -77,7 +81,8 @@ export async function openCurrProxy() {
 }
 
 export function changeProxy(proxyConfig: any) {
-
+    console.log("changeProxy", proxyConfig);
+    
     var _config = {
         mode: proxyConfig.mode,
         rules: proxyConfig.rules
@@ -88,6 +93,7 @@ export function changeProxy(proxyConfig: any) {
 
 
     reDrawIcon(proxyConfig.color, "");
+    currProxyPidSet(proxyConfig.pid);
     showCurrProxy();
 }
 
