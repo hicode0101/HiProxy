@@ -35,6 +35,12 @@
     "options_btn_reset": {
         "message": "Reset"      
     },
+    "options_btn_detail_ok": {
+        "message": "OK"      
+    },
+    "options_btn_detail_ok_tips": {
+        "message": "After modification, click the batch save button on the list interface to take effect"      
+    },
     "options_about_project": {
         "message": "Project"      
     },
@@ -43,6 +49,39 @@
     },
     "options_about_author": {
         "message": "Author"      
+    },
+    "options_msg_repeat_name": {
+        "message": "There are duplicate configuration names, please check!"      
+    },
+    "options_msg_save_success": {
+        "message": "Saved successfully! The page is about to refresh..."      
+    },
+    "options_msg_reset_dialog_title": {
+        "message": "Operation warning"      
+    },
+    "options_msg_reset_dialog_content": {
+        "message": "Are you sure you want to reset all configurations？"      
+    },
+    "options_msg_reset_dialog_positiveText": {
+        "message": "Confirm"      
+    },
+    "options_msg_reset_dialog_negativeText": {
+        "message": "Cancel"      
+    },
+    "options_msg_input_name": {
+        "message": "The configuration name parameter is incorrect, please check"      
+    },
+    "options_msg_input_host": {
+        "message": "The host address parameters are incorrect, please check"      
+    },
+    "options_msg_input_port": {
+        "message": "The port parameters are incorrect (port range 0~65535), please check"      
+    },
+    "options_msg_input_detail_bypass": {
+        "message": "List of hosts connected without proxy: (one host per row)"      
+    },
+    "options_msg_input_detail_auth": {
+        "message": "Proxy login: (If password login is not required, leave all options below blank)"      
     },
     "test_note": {
         "message": ""      
