@@ -59,7 +59,79 @@
 
                     </n-tab-pane>
                     <n-tab-pane name="tabBypassDoc" tab="通配符说明文档">
-                        -
+
+                        <n-space vertical>
+                            <n-table striped>
+                                <thead>
+                                <tr>
+                                    <th>表达式</th>
+                                    <th>说明</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>127.0.0.1</td>
+                                        <td>
+                                           http://127.0.0.1 的访问不会走代理 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>localhost</td>
+                                        <td>
+                                           http://localhost 的访问不会走代理 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>::1</td>
+                                        <td>
+                                           http://::1 的访问不会走代理（"::1"代表ipv6的本地回环地址）
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>192.168.1.0/24</td>
+                                        <td>
+                                            对主机范围 192.168.1.0~192.168.1.255 的访问不会走代理 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>qq.com</td>
+                                        <td>
+                                            仅 http://qq.com 或 https://qq.com 的访问不会走代理，其它二级域名的访问会走代理，例如 http://www.qq.com 的访问会走代理 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>.qq.com</td>
+                                        <td>
+                                            qq.com 域名下所有二级域名不走代理，例如 http://aaa.qq.com 或 http://bbb.qq.com 的访问都不会走代理 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>*.qq.com</td>
+                                        <td>
+                                            qq.com 域名下所有二级域名不走代理，例如 http://aaa.qq.com 或 http://bbb.qq.com 的访问都不会走代理 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>*qq.com</td>
+                                        <td>
+                                           http://abc.qq.com 或 http://abcqq.com 的访问不会走代理 
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>官方文档</td>
+                                        <td>
+                                            <a href="https://developer.chrome.com/docs/extensions/reference/api/proxy#bypass_list" target="_blank">
+                                            https://developer.chrome.com/docs/extensions/reference/api/proxy?hl=zh-cn#bypass_list
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </n-table>
+                        </n-space>
+                        
+                        
                     </n-tab-pane>
                     <n-tab-pane name="tabAbout" tab="关于">
 
