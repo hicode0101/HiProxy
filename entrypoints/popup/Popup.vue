@@ -15,7 +15,8 @@ import { RouterLink } from 'vue-router'
 import {
     LogoChrome as ChromeIcon,
     LogoWindows as SystemIcon,
-    SettingsOutline as OptionsIcon
+    SettingsOutline as OptionsIcon,
+    PersonCircleOutline as NetWorkIcon
 } from '@vicons/ionicons5'
 
 import { ArrowSwap24Filled as DirectIcon } from '@vicons/fluent'
@@ -26,13 +27,13 @@ let menuOptions: MenuOption[] = reactive([]);
 
 
 menuOptions.push({
-    label: 'Direct',
+    label: browser.i18n.getMessage('pop_menu_direct'),
     key: 'pop-menu-Direct',
     icon: renderColorIcon(DirectIcon, "#9b9b9b")
 });
 
 menuOptions.push({
-    label: 'System',
+    label: browser.i18n.getMessage('pop_menu_system'),
     key: 'pop-menu-System',
     icon: renderIcon(SystemIcon)
 });
@@ -77,9 +78,15 @@ browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
         });
 
         menuOptions.push({
-            label: 'Options',
+            label: browser.i18n.getMessage('pop_menu_options'),
             key: 'pop-menu-Options',
             icon: renderIcon(OptionsIcon),
+        });
+
+        menuOptions.push({
+            label: browser.i18n.getMessage('pop_menu_myip'),
+            key: 'pop-menu-MyIp',
+            icon: renderIcon(NetWorkIcon),
         });
         
     }
@@ -110,6 +117,9 @@ function onMenuChange(key: string, item: MenuOption) {
         case "pop-menu-Options":
             openOptions();
             break;
+        case "pop-menu-MyIp":
+            queryMyIp();
+            break;
         default:
             console.log("^_^");
             onChangeProxy(key, item);
@@ -139,6 +149,12 @@ function openOptions() {
 
 function openOptions2() {
     window.location.href = "./options.html";
+
+}
+
+function queryMyIp() {
+    //https://www.ip138.com
+    browser.tabs.create({ url: "https://ip.hicode.top" });
 
 }
 

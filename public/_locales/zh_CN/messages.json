@@ -4,6 +4,87 @@
     },
     "plugin_desc": {
         "message": "HiProxy 一个代理设置插件"      
+    },
+    "pop_menu_direct": {
+        "message": "直接连接"      
+    },
+    "pop_menu_system": {
+        "message": "系统代理"      
+    },
+    "pop_menu_options": {
+        "message": "配置选项"      
+    },
+    "pop_menu_myip": {
+        "message": "查询当前IP"      
+    },
+    "options_tab_proxy_config": {
+        "message": "代理配置"      
+    },
+    "options_tab_bypass_doc": {
+        "message": "通配符说明文档"      
+    },
+    "options_tab_about": {
+        "message": "关于"      
+    },
+    "options_btn_addNew": {
+        "message": "新增代理配置"      
+    },
+    "options_btn_save_all": {
+        "message": "批量保存"      
+    },
+    "options_btn_reset": {
+        "message": "重置"      
+    },
+    "options_btn_detail_ok": {
+        "message": "确定修改，并返回到列表"      
+    },
+    "options_btn_detail_ok_tips": {
+        "message": "修改后在列表界面，点批量保存按钮生效"      
+    },
+    "options_about_project": {
+        "message": "项目地址"      
+    },
+    "options_about_version": {
+        "message": "版本号"      
+    },
+    "options_about_author": {
+        "message": "作者"      
+    },
+    "options_msg_repeat_name": {
+        "message": "存在重复的配置名，请检查!"      
+    },
+    "options_msg_save_success": {
+        "message": "保存成功！即将刷新页面..."      
+    },
+    "options_msg_reset_dialog_title": {
+        "message": "操作警告"      
+    },
+    "options_msg_reset_dialog_content": {
+        "message": "您确定要重置全部配置吗？"      
+    },
+    "options_msg_reset_dialog_positiveText": {
+        "message": "确定重置"      
+    },
+    "options_msg_reset_dialog_negativeText": {
+        "message": "取消"      
+    },
+    "options_msg_input_name": {
+        "message": "配置名参数不正确，请检查"      
+    },
+    "options_msg_input_host": {
+        "message": "主机地址参数不正确，请检查"      
+    },
+    "options_msg_input_port": {
+        "message": "端口参数不正确（端口范围 0~ 65535），请检查"      
+    },
+    "options_msg_input_detail_bypass": {
+        "message": "不经过代理连接的主机列表: (每行一个主机)"      
+    },
+    "options_msg_input_detail_auth": {
+        "message": "代理登录: (如无需密码登录，则下面选项全部留空)"      
+    },
+    "test_note": {
+        "message": ""      
     }
     
 }

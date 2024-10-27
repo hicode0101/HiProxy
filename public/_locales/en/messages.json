@@ -4,5 +4,47 @@
     },
     "plugin_desc": {
         "message": "A proxy extension for Chrome"      
+    },
+    "pop_menu_direct": {
+        "message": "Direct"      
+    },
+    "pop_menu_system": {
+        "message": "System"      
+    },
+    "pop_menu_options": {
+        "message": "Options"      
+    },
+    "pop_menu_myip": {
+        "message": "Query My IP"      
+    },
+    "options_tab_proxy_config": {
+        "message": "Proxy Configs"      
+    },
+    "options_tab_bypass_doc": {
+        "message": "Bypass Doc"      
+    },
+    "options_tab_about": {
+        "message": "About"      
+    },
+    "options_btn_addNew": {
+        "message": "Add New Config"      
+    },
+    "options_btn_save_all": {
+        "message": "Save All"      
+    },
+    "options_btn_reset": {
+        "message": "Reset"      
+    },
+    "options_about_project": {
+        "message": "Project"      
+    },
+    "options_about_version": {
+        "message": "Version"      
+    },
+    "options_about_author": {
+        "message": "Author"      
+    },
+    "test_note": {
+        "message": ""      
     }
 }

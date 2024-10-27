@@ -9,11 +9,11 @@
         <n-gi>
             <div class="bodyBlock">
                 <n-tabs :bar-width="28" type="line" class="custom-tabs">
-                    <n-tab-pane name="tabConfigs" tab="Proxy Configs">
+                    <n-tab-pane name="tabConfigs" tab="代理配置">
 
                         <n-dynamic-input v-model:value="proxyConfigList" :on-create="onCreateConfig">
                             <template #create-button-default>
-                                新增代理配置
+                                {{ browser.i18n.getMessage('options_btn_addNew') }}
                             </template>
                             <template #default="{ value }">
                                 <div style="display: flex; align-items: center; width: 90%;padding-left: 20px;">
@@ -47,10 +47,10 @@
                         <div class="btnBlock">
                             <n-space>
                                 <n-button type="primary" @click="saveConfigs">
-                                批量保存
+                                    {{ browser.i18n.getMessage('options_btn_save_all') }}
                                 </n-button>
                                 <n-button strong secondary type="error" @click="resetConfigs">
-                                重置
+                                    {{ browser.i18n.getMessage('options_btn_reset') }}
                                 </n-button>
                                 
                             </n-space>
@@ -58,23 +58,27 @@
 
 
                     </n-tab-pane>
-                    <n-tab-pane name="tabAbout" tab="About">
+                    <n-tab-pane name="tabBypassDoc" tab="通配符说明文档">
+                        -
+                    </n-tab-pane>
+                    <n-tab-pane name="tabAbout" tab="关于">
 
                         <n-space vertical>
                             <n-table striped>
                                 <tbody>
                                     <tr>
-                                        <td>Project：</td>
-                                        <td><a target="_blank"
+                                        <td>{{ browser.i18n.getMessage('options_about_project') }}：</td>
+                                        <td>
+                                            <a target="_blank"
                                                 href="https://github.com/hicode0101/HiProxy">https://github.com/hicode0101/HiProxy</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Version：</td>
+                                        <td>{{ browser.i18n.getMessage('options_about_version') }}：</td>
                                         <td>v3.1.0</td>
                                     </tr>
                                     <tr>
-                                        <td>Author：</td>
+                                        <td>{{ browser.i18n.getMessage('options_about_author') }}：</td>
                                         <td>hicode0101</td>
                                     </tr>
 
@@ -112,7 +116,7 @@
                     <tr>
                         <td colspan="2">
                             <n-alert type="info">
-                                不经过代理连接的主机列表: (每行一个主机)
+                                {{ browser.i18n.getMessage('options_msg_input_detail_bypass') }}
                             </n-alert>
                         </td>
                         
@@ -140,7 +144,7 @@
                     <tr>
                         <td colspan="2">
                             <n-alert type="info">
-                                代理登录: (如无需密码登录，则下面选项全部留空)
+                                {{ browser.i18n.getMessage('options_msg_input_detail_auth') }}
                             </n-alert>
                         </td>
                         
@@ -168,10 +172,10 @@
             <n-popover trigger="hover">
                 <template #trigger>
                     <n-button strong secondary round type="info" @click="detailToList">
-                    确定修改，并返回到列表
+                        {{ browser.i18n.getMessage('options_btn_detail_ok') }}
                     </n-button>
                 </template>
-                <span>修改后在列表界面，点批量保存按钮生效</span>
+                <span>{{ browser.i18n.getMessage('options_btn_detail_ok_tips') }}</span>
             </n-popover>
         </div>
         </template>
@@ -200,6 +204,8 @@ let detailItem = ref({});
 let detailBypassHost = ref("");
 
 let tmpMsg = ref("");
+
+let msgConfig = browser.i18n.getMessage('options_tab_proxy_config');
 
 function openPopup() {
     window.location.href = "./popup.html";
@@ -271,10 +277,18 @@ async function saveConfigs() {
 
     //console.log(proxyConfigList.value);
 
-    if(!checkForName()){
-        message.error("存在重复的配置名，请检查");
+    if(!checkForInput()){
+        //message.error("输入参数不正确，请检查");
         return;
     }
+    
+    if(!checkForName()){
+        message.error(browser.i18n.getMessage('options_msg_repeat_name'));
+        return;
+    }
+
+    
+    
     
     let proxyConfigsMap = new Map<string,any>();
     
@@ -292,7 +306,7 @@ async function saveConfigs() {
     
     //setTimeout(() => {refreshPage();},2000);
 
-    message.success('保存成功！即将刷新页面...',{duration:2000, onAfterLeave: () => {refreshPage();}});
+    message.success(browser.i18n.getMessage('options_msg_save_success'),{duration:2000, onAfterLeave: () => {refreshPage();}});
     
 }
 
@@ -300,20 +314,20 @@ function resetConfigs() {
     //message.info("resetConfigs ...");
     
     dialog.warning({
-          title: '操作警告',
-          content: '您确定要重置全部配置吗？',
-          positiveText: '确定重置',
-          negativeText: '取消',
+          title: browser.i18n.getMessage('options_msg_reset_dialog_title'),
+          content: browser.i18n.getMessage('options_msg_reset_dialog_content'),
+          positiveText: browser.i18n.getMessage('options_msg_reset_dialog_positiveText'),
+          negativeText: browser.i18n.getMessage('options_msg_reset_dialog_negativeText'),
           maskClosable: false,
           onPositiveClick: () => {
             proxyConfigsInit();            
             refreshPage();
           },
           onMaskClick: () => {
-            message.warning('有个警告弹窗，您看到了吗')
+            //message.warning('有个警告弹窗，您看到了吗')
           },
           onEsc: () => {
-            message.info('通过 esc 取消')
+            //message.info('通过 esc 取消')
           }
         });
 }
@@ -371,7 +385,7 @@ function changeNameEvent(item : any, event : Event){
     
     //console.log(checkForName());
     if(!checkForName()){
-        message.error("存在重复的配置名，请检查");
+        message.error(browser.i18n.getMessage('options_msg_repeat_name'));
     }
 }
 
@@ -394,6 +408,33 @@ function checkForName() {
 
             
         });
+    });
+
+    return result;
+}
+
+function checkForInput() {
+    let result = true;
+    proxyConfigList.value.forEach((elementA: any) => {
+        console.log(elementA);
+        if (elementA.name === null || elementA.name == "") {
+            result = false;
+            message.error(browser.i18n.getMessage('options_msg_input_name'));
+
+        }
+
+        if (elementA.rules.singleProxy.host === null || elementA.rules.singleProxy.host === '') {
+            result = false;
+            message.error(browser.i18n.getMessage('options_msg_input_host'));
+
+        }
+
+        if (elementA.rules.singleProxy.port === null || elementA.rules.singleProxy.port<0 || elementA.rules.singleProxy.port > 65535) {
+            result = false;
+            message.error(browser.i18n.getMessage('options_msg_input_port'));
+
+        }
+
     });
 
     return result;
