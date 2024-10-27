@@ -239,10 +239,10 @@ function onCreateConfig() {
     }
 }
 
-let default_proxyType = 'HTTP';
-let proxyTypeOptions = ['HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5'].map(
+let default_proxyType = 'http';
+let proxyTypeOptions = ['http', 'https', 'socks4', 'socks5'].map(
         v => ({
-          label: v,
+          label: v.toUpperCase(),
           value: v
         })
       );

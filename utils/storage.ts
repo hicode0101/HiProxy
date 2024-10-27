@@ -97,7 +97,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "HTTP",
+                scheme: "http",
                 host: "127.0.0.1",
                 port: 8080,
             },
@@ -118,7 +118,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "SOCKS5",
+                scheme: "socks5",
                 host: "127.0.0.1",
                 port: 1080,
             },
@@ -139,7 +139,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "SOCKS5",
+                scheme: "socks5",
                 host: "127.0.0.1",
                 port: 10808,
             },
@@ -160,7 +160,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "SOCKS5",
+                scheme: "socks5",
                 host: "127.0.0.1",
                 port: 7891,
             },
@@ -181,7 +181,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "HTTP",
+                scheme: "http",
                 host: "127.0.0.1",
                 port: 7890,
             },
@@ -202,7 +202,7 @@ export function getDefaultConfigs() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "HTTP",
+                scheme: "http",
                 host: "127.0.0.1",
                 port: 8080,
             },
