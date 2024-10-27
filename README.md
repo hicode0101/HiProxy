@@ -13,6 +13,12 @@ vue3 + wxt + ts
 
 ```
 
+# Screnshot（UI截图）
+
+
+<img src="./screenshot/screen_1.png" width="600" />
+
+<img src="./screenshot/screen_2.png" width="600" />
 
 
 
