@@ -96,7 +96,7 @@
                                     <tr>
                                         <td>qq.com</td>
                                         <td>
-                                            仅 http://qq.com 或 https://qq.com 的访问不会走代理，其它二级域名的访问会走代理，例如 http://www.qq.com 的访问会走代理 
+                                            仅 http://qq.com 的访问不会走代理，其它二级域名的访问会走代理，例如 http://www.qq.com 的访问会走代理 
                                         </td>
                                     </tr>
                                     <tr>
@@ -108,7 +108,7 @@
                                     <tr>
                                         <td>*.qq.com</td>
                                         <td>
-                                            qq.com 域名下所有二级域名不走代理，例如 http://aaa.qq.com 或 http://bbb.qq.com 的访问都不会走代理 
+                                            qq.com 域名下所有二级域名不走代理，例如 http://aaa.qq.com 或 http://bbb.qq.com 的访问都不会走代理（推荐）
                                         </td>
                                     </tr>
                                     <tr>
@@ -117,7 +117,18 @@
                                            http://abc.qq.com 或 http://abcqq.com 的访问不会走代理 
                                         </td>
                                     </tr>
-                                    
+                                    <tr>
+                                        <td>login.qq.com</td>
+                                        <td>
+                                           http://login.qq.com 的访问不会走代理 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>h.trace.qq.com</td>
+                                        <td>
+                                           http://h.trace.qq.com 的访问不会走代理 
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td>官方文档</td>
                                         <td>
@@ -147,7 +158,7 @@
                                     </tr>
                                     <tr>
                                         <td>{{ browser.i18n.getMessage('options_about_version') }}：</td>
-                                        <td>v3.1.2</td>
+                                        <td>v{{ browser.i18n.getMessage('plugin_version') }}</td>
                                     </tr>
                                     <tr>
                                         <td>{{ browser.i18n.getMessage('options_about_author') }}：</td>

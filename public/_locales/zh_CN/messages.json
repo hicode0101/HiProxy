@@ -5,6 +5,9 @@
     "plugin_desc": {
         "message": "HiProxy 一个代理设置插件"      
     },
+    "plugin_version": {
+        "message": "3.1.3"      
+    },
     "pop_menu_direct": {
         "message": "直接连接"      
     },
@@ -78,7 +81,7 @@
         "message": "端口参数不正确（端口范围 0~ 65535），请检查"      
     },
     "options_msg_input_detail_bypass": {
-        "message": "不经过代理连接的主机列表: (每行一个主机)"      
+        "message": "不经过代理连接的主机列表: (每行一个主机，支持通配符)"      
     },
     "options_msg_input_detail_auth": {
         "message": "代理登录: (如无需密码登录，则下面选项全部留空)"      
