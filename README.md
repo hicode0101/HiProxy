@@ -23,6 +23,10 @@ https://github.com/hicode0101/HiProxy/releases
 2、开启开发者模式
 3、把下载的 HiProxy-3.1.5-chrome.zip 文件直接拖进去，就可以了，不用解压。
 
+
+B站 安装和使用视频教程：
+https://www.bilibili.com/video/BV1tVS4YXEUT
+
 ```
 
 # Screenshot（UI截图）
