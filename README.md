@@ -28,13 +28,21 @@ https://github.com/hicode0101/HiProxy/releases
 
 ```
 
+<br />
+<br />
+<br />
+
+
 # 安装和使用视频教程：
  
 
-[https://www.bilibili.com/video/BV1tVS4YXEUT](https://www.bilibili.com/video/BV1tVS4YXEUT)
+<a href="https://www.bilibili.com/video/BV1tVS4YXEUT" target="_blank">https://www.bilibili.com/video/BV1tVS4YXEUT</a>
   
 点击链接跳转至视频播放页面。
   
+<br />
+<br />
+<br />
 
 
 # Screenshot（UI截图）
