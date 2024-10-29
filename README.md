@@ -29,10 +29,11 @@ https://github.com/hicode0101/HiProxy/releases
 ```
 
 # 安装和使用视频教程：
-https://www.bilibili.com/video/BV1tVS4YXEUT  
+ 
 
+[https://www.bilibili.com/video/BV1tVS4YXEUT](https://www.bilibili.com/video/BV1tVS4YXEUT)
   
-  
+点击链接跳转至视频播放页面。
   
 
 
