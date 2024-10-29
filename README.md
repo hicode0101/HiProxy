@@ -21,7 +21,7 @@ https://github.com/hicode0101/HiProxy/releases
 使用方式：
 1、进chrome 浏览器扩展，直达地址 chrome://extensions/
 2、开启开发者模式
-3、把下载的 HiProxy-3.1.3-chrome.zip 文件直接拖进去，就可以了，不用解压。
+3、把下载的 HiProxy-3.1.5-chrome.zip 文件直接拖进去，就可以了，不用解压。
 
 ```
 
