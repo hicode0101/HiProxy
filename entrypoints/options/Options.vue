@@ -308,7 +308,7 @@ function onCreateConfig() {
         mode: "fixed_servers",
         rules: {
             singleProxy: {
-                scheme: "HTTP",
+                scheme: "http",
                 host: "127.0.0.1",
                 port: 8080,
             },
@@ -383,6 +383,7 @@ async function saveConfigs() {
     });
     
     let json = JSON.stringify(Array.from(proxyConfigsMap));
+    console.log(json);
     
     await browser.storage.local.set({"proxyConfigs": json});
 
