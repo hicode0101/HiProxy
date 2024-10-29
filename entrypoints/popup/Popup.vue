@@ -125,7 +125,7 @@ function onMenuChange(key: string, item: MenuOption) {
             onChangeProxy(key, item);
     }
     
-    //closePopup();
+    closePopup();
 }
 
 function closePopup1() {
