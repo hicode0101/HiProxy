@@ -26,9 +26,10 @@ export default defineBackground(() => {
   });
 
   
+  /*
   browser.runtime.openOptionsPage((event: any) => {
     console.log("openOptionsPage", new Date().toLocaleTimeString());
   });
-  
+  */
 
 });
