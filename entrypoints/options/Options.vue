@@ -158,7 +158,7 @@
                                     </tr>
                                     <tr>
                                         <td>{{ browser.i18n.getMessage('options_about_version') }}：</td>
-                                        <td>v{{ browser.i18n.getMessage('plugin_version') }}</td>
+                                        <td>v{{ browser.runtime.getManifest().version }}</td>
                                     </tr>
                                     <tr>
                                         <td>{{ browser.i18n.getMessage('options_about_author') }}：</td>
@@ -392,8 +392,8 @@ async function saveConfigs() {
 
     openCurrProxy();
     
-    message.success(browser.i18n.getMessage('options_msg_save_success'),{duration:2000, onAfterLeave: () => {refreshPage();}});
-    
+    //message.success(browser.i18n.getMessage('options_msg_save_success'),{duration:2000, onAfterLeave: () => {refreshPage();}});
+    message.success(browser.i18n.getMessage('options_msg_save_success'),{duration:2000, onAfterLeave: () => {}});
 }
 
 function resetConfigs() {

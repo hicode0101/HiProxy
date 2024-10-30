@@ -39,7 +39,7 @@ export function showCurrProxy() {
 }
 
 export async function proxyConfigsInit() {
-  console.log("proxyConfigsInit");
+  console.log("proxyConfigsInit", new Date().toLocaleTimeString());
 
   let currProxyPid = await currProxyPidGet();
   console.log("currProxyPid", currProxyPid);

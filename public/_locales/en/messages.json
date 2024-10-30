@@ -5,9 +5,6 @@
     "plugin_desc": {
         "message": "A proxy extension for Chrome"      
     },
-    "plugin_version": {
-        "message": "3.1.5"      
-    },
     "pop_menu_direct": {
         "message": "Direct"      
     },
@@ -57,7 +54,7 @@
         "message": "There are duplicate configuration names, please check!"      
     },
     "options_msg_save_success": {
-        "message": "Saved successfully! The page is about to refresh..."      
+        "message": "Saved successfully! "      
     },
     "options_msg_reset_dialog_title": {
         "message": "Operation warning"      

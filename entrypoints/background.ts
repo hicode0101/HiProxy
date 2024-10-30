@@ -2,7 +2,7 @@
 
 export default defineBackground(() => {
   console.log('Hello background!', { id: browser.runtime.id });
-  proxyConfigsInit();
+  
 
   browser.runtime.onInstalled.addListener((e: any) => {
     console.log("onInstalled");
@@ -10,7 +10,7 @@ export default defineBackground(() => {
     console.debug(JSON.stringify(e));
 
     if (e.reason === 'install') {
-      //proxyConfigsInit();
+      proxyConfigsInit();
       //browser.tabs.create({ url: "/options.html" });
     }
 
@@ -19,13 +19,16 @@ export default defineBackground(() => {
   });
 
   browser.runtime.onStartup.addListener((event: any) => {
-    console.log("onStartup");
+    console.log("onStartup", new Date().toLocaleTimeString());
 
-    proxyConfigsInit();
     directProxy();
 
   });
 
+  
+  browser.runtime.openOptionsPage((event: any) => {
+    console.log("openOptionsPage", new Date().toLocaleTimeString());
+  });
   
 
 });

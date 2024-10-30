@@ -1,7 +1,9 @@
 
 
 export async function currProxyPidGet() {
-
+    //localStorage.getItem('UserName');
+    //chrome.storage.local.get(["UserName"]).then((result)=> {console.log("Value is ",result.UserName);});
+    
     const _result = await browser.storage.local.get("currProxyPid");
     console.log(_result);
     //console.log(_result.currProxyPid);
@@ -10,6 +12,9 @@ export async function currProxyPidGet() {
 
 
 export async function currProxyPidSet(currProxyPid: string) {
+    //localStorage.setItem('UserName', 'taven2');
+    //chrome.storage.local.set({"UserName":"taven"}).then(()=> {console.log("Value is set");})
+
     await browser.storage.local.set({ "currProxyPid": currProxyPid });
 
 }
@@ -17,6 +22,60 @@ export async function currProxyPidSet(currProxyPid: string) {
 export function currProxyPidRemove() {
     browser.storage.local.remove("currProxyPid");
 }
+
+export async function saveProxyConfigs(proxyConfigsMap : Map<string,any>){
+    
+    let json = JSON.stringify(Array.from(proxyConfigsMap));
+    console.log(json);
+    
+    //localStorage.setItem("proxyConfigs", json);
+    await browser.storage.local.set({"proxyConfigs": json});
+    
+}
+
+export function getAllKeys() {
+    //chrome.storage.local.getKeys().then((result)=> {console.log("Value is ",result);});
+    browser.storage.local.getKeys().then((result : any)=> {console.log("Value is ",result);});
+}
+
+async function storageSet(jsonData : string) {
+    console.log("storageSet", jsonData);
+    //chrome.storage.local.set(jsonData).then(() => {
+    //    console.log("Value is set");
+    //});
+
+    await browser.storage.local.set(jsonData);
+
+}
+
+async function storageGet(keyName : string) {
+
+    //_result = {};
+    //await chrome.storage.local.get(keyName).then((result) => {
+    //   console.log("storageGet is ", keyName, JSON.stringify(result));
+    //   _result = result;
+    //});
+
+    const _result = await browser.storage.local.get(keyName);
+    console.log(_result);
+    //console.log(_result.currProxyPid);
+
+    return _result;
+}
+export function clearStorage() {
+    //localStorage.clear();
+    //chrome.storage.local.clear();
+    browser.storage.local.clear();
+    console.log("storageClear");
+}
+
+export function storageRemove(keyName : string) {
+    browser.storage.local.remove(keyName).then(() => {
+        console.log("Value removed");
+    });
+}
+
+
 
 
 export async function proxyConfigsSet(proxyConfigsMap: Map<string, any>) {
@@ -53,41 +112,8 @@ export function proxyConfigsGetByCallback(callback: Function) {
 
 }
 
-async function storageSet(jsonData : string) {
-    console.log("storageSet", jsonData);
-    //chrome.storage.local.set(jsonData).then(() => {
-    //    console.log("Value is set");
-    //});
 
-    await browser.storage.local.set(jsonData);
 
-}
-
-async function storageGet(keyName : string) {
-
-    //_result = {};
-    //await chrome.storage.local.get(keyName).then((result) => {
-    //   console.log("storageGet is ", keyName, JSON.stringify(result));
-    //   _result = result;
-    //});
-
-    const _result = await browser.storage.local.get(keyName);
-    console.log(_result);
-    //console.log(_result.currProxyPid);
-
-    return _result;
-}
-
-export function storageRemove(keyName : string) {
-    browser.storage.local.remove(keyName).then(() => {
-        console.log("Value removed");
-    });
-}
-
-export function storageClear() {
-    browser.storage.local.clear();
-    console.log("storageClear");
-}
 
 export function getDefaultConfigs() {
     let proxyConfigsMap = new Map();

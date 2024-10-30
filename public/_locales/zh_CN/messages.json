@@ -5,9 +5,6 @@
     "plugin_desc": {
         "message": "HiProxy 一个代理设置插件"      
     },
-    "plugin_version": {
-        "message": "3.1.5"      
-    },
     "pop_menu_direct": {
         "message": "直接连接"      
     },
@@ -57,7 +54,7 @@
         "message": "存在重复的配置名，请检查!"      
     },
     "options_msg_save_success": {
-        "message": "保存成功！即将刷新页面..."      
+        "message": "保存成功！"      
     },
     "options_msg_reset_dialog_title": {
         "message": "操作警告"      
