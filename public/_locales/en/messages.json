@@ -29,6 +29,9 @@
     "options_btn_addNew": {
         "message": "Add New Config"      
     },
+    "options_msg_input_proxy_name_ph": {
+        "message": "a name for config"      
+    },
     "options_btn_save_all": {
         "message": "Save All"      
     },
@@ -80,8 +83,17 @@
     "options_msg_input_detail_bypass": {
         "message": "List of hosts connected without proxy: (one host per row)"      
     },
+    "options_msg_input_detail_bypass_host_ph": {
+        "message": "host IP or domain wildcard"      
+    },
     "options_msg_input_detail_auth": {
         "message": "Proxy login: (If password login is not required, leave all options below blank)"      
+    },
+    "options_msg_input_detail_auth_username": {
+        "message": "UserName"      
+    },
+    "options_msg_input_detail_auth_password": {
+        "message": "PassWord"      
     },
     "test_note": {
         "message": ""      

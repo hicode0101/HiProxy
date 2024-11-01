@@ -9,7 +9,7 @@
         <n-gi>
             <div class="bodyBlock">
                 <n-tabs :bar-width="28" type="line" class="custom-tabs">
-                    <n-tab-pane name="tabConfigs" tab="代理配置">
+                    <n-tab-pane name="tabConfigs" :tab="browser.i18n.getMessage('options_tab_proxy_config')">
 
                         <n-dynamic-input v-model:value="proxyConfigList" :on-create="onCreateConfig">
                             <template #create-button-default>
@@ -25,7 +25,7 @@
                                     </template>
                                     </n-button>
                                     <n-color-picker v-model:value="value.color" :modes="['hex']" :show-alpha="false" :style="{ width: '90px',margin: '0 5px'  }" :actions="['confirm']" />
-                                    <n-input v-model:value="value.name" @change="changeNameEvent(value,$event)" @keyup="keyUpNameEvent(value,$event)" type="text" placeholder="代理配置的名称，例如：http-8080，方便自己区分" :style="{ width: '33%',margin: '0 5px' }" />
+                                    <n-input v-model:value="value.name" @change="changeNameEvent(value,$event)" @keyup="keyUpNameEvent(value,$event)" type="text" :placeholder="browser.i18n.getMessage('options_msg_input_proxy_name_ph')"  :style="{ width: '33%',margin: '0 5px' }" />
                                     <n-select v-model:value="value.rules.singleProxy.scheme" :style="{ width: '120px',margin: '0 5px' }" :options="proxyTypeOptions" />
                                     
                                     
@@ -58,7 +58,7 @@
 
 
                     </n-tab-pane>
-                    <n-tab-pane name="tabBypassDoc" tab="通配符说明文档">
+                    <n-tab-pane name="tabBypassDoc" :tab="browser.i18n.getMessage('options_tab_bypass_doc')">
 
                         <n-space vertical>
                             <n-table striped>
@@ -144,12 +144,12 @@
                         
                         
                     </n-tab-pane>
-                    <n-tab-pane name="tabAbout" tab="关于">
+                    <n-tab-pane name="tabAbout" :tab="browser.i18n.getMessage('options_tab_about')">
 
                         <n-space vertical>
                             <n-table striped>
                                 <tbody>
-                                    <tr>
+                                    <tr text="{{ browser.i18n.getMessage('options_tab_about') }}">
                                         <td>{{ browser.i18n.getMessage('options_about_project') }}：</td>
                                         <td>
                                             <a target="_blank"
@@ -210,7 +210,7 @@
                             
                             <n-input
                                 v-model:value="detailBypassHost"
-                                placeholder="请输入 主机IP 或 域名通配符"
+                                :placeholder="browser.i18n.getMessage('options_msg_input_detail_bypass_host_ph')" 
                                 type="textarea"
                                 :autosize="{
                                     minRows: 5,
@@ -236,13 +236,13 @@
                     <tr>
                         <td>UserName：</td>
                         <td>
-                            <n-input v-model:value="tmpMsg" type="text" placeholder="用户名" :style="{ width: '200px',margin: '0 5px' }" />
+                            <n-input v-model:value="tmpMsg" type="text" :placeholder="browser.i18n.getMessage('options_msg_input_detail_auth_username')" :style="{ width: '200px',margin: '0 5px' }" />
                         </td>
                     </tr>
                     <tr>
                         <td>PassWord：</td>
                         <td>
-                            <n-input v-model:value="tmpMsg" type="text" placeholder="密码" :style="{ width: '200px',margin: '0 5px' }" />
+                            <n-input v-model:value="tmpMsg" type="text" :placeholder="browser.i18n.getMessage('options_msg_input_detail_auth_password')" :style="{ width: '200px',margin: '0 5px' }" />
                         </td>
                     </tr>
                 </tbody>

@@ -29,6 +29,9 @@
     "options_btn_addNew": {
         "message": "新增代理配置"      
     },
+    "options_msg_input_proxy_name_ph": {
+        "message": "代理配置的名称，例如：http-8080，方便自己区分"      
+    },
     "options_btn_save_all": {
         "message": "批量保存"      
     },
@@ -80,11 +83,19 @@
     "options_msg_input_detail_bypass": {
         "message": "不经过代理连接的主机列表: (每行一个主机，支持通配符)"      
     },
+    "options_msg_input_detail_bypass_host_ph": {
+        "message": "请输入 主机IP 或 域名通配符"      
+    },
     "options_msg_input_detail_auth": {
         "message": "代理登录: (如无需密码登录，则下面选项全部留空)"      
+    },
+    "options_msg_input_detail_auth_username": {
+        "message": "用户名"      
+    },
+    "options_msg_input_detail_auth_password": {
+        "message": "密码"      
     },
     "test_note": {
         "message": ""      
     }
-    
 }
