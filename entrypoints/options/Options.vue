@@ -242,7 +242,7 @@
                     <tr>
                         <td>PassWord：</td>
                         <td>
-                            <n-input v-model:value="tmpMsg" type="text" :placeholder="browser.i18n.getMessage('options_msg_input_detail_auth_password')" :style="{ width: '200px',margin: '0 5px' }" />
+                            <n-input v-model:value="tmpMsg2" type="text" :placeholder="browser.i18n.getMessage('options_msg_input_detail_auth_password')" :style="{ width: '200px',margin: '0 5px' }" />
                         </td>
                     </tr>
                 </tbody>
@@ -287,6 +287,7 @@ let detailItem = ref({});
 let detailBypassHost = ref("");
 
 let tmpMsg = ref("");
+let tmpMsg2 = ref("");
 
 let msgConfig = browser.i18n.getMessage('options_tab_proxy_config');
 
