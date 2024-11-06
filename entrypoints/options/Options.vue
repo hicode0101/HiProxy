@@ -213,8 +213,8 @@
                                 :placeholder="browser.i18n.getMessage('options_msg_input_detail_bypass_host_ph')" 
                                 type="textarea"
                                 :autosize="{
-                                    minRows: 5,
-                                    maxRows: 5,
+                                    minRows: 10,
+                                    maxRows: 10,
                                 }"  :style="{ width: '360px',margin: '0 5px' }"
                                 />  
                         </td>
@@ -222,7 +222,7 @@
                 </tbody>
             </n-table>
             
-            <n-table v-show="true">
+            <n-table v-show="false">
                 <tbody>
                     <tr>
                         <td colspan="2">

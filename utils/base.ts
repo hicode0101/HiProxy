@@ -5,9 +5,11 @@ export function everywherefunc(){
 
 
 
-export async function directProxy() {
+export async function directProxy(callback:Function) {
 
-    browser.proxy.settings.set({ value: { mode: "direct" }, scope: "regular" });
+    browser.proxy.settings.set({ value: { mode: "direct" }, scope: "regular" }).then(() => {
+        callback();
+    });
 
     
     showCurrProxy();
@@ -19,9 +21,11 @@ export async function directProxy() {
 
 }
 
-export function systemProxy() {
+export function systemProxy(callback:Function) {
 
-    browser.proxy.settings.set({ value: { mode: "system" }, scope: "regular" });
+    browser.proxy.settings.set({ value: { mode: "system" }, scope: "regular" }).then(() => {
+        callback();
+    });
 
     showCurrProxy();
     reDrawIcon("#000000", "");
@@ -57,7 +61,7 @@ export async function proxyConfigsInit() {
 }
 
 
-export async function openCurrProxy() {
+export async function openCurrProxy(callback: Function) {
     let currProxyPid = await currProxyPidGet();
     console.log("currProxyPid", currProxyPid);
 
@@ -66,13 +70,13 @@ export async function openCurrProxy() {
         if(proxyConfigs instanceof Map){
             if (currProxyPid != undefined && proxyConfigs.has(currProxyPid) == true) {
                 let proxyConfig = proxyConfigs.get(currProxyPid);
-                changeProxy(proxyConfig);
+                changeProxy(proxyConfig, callback);
             } else {
-                directProxy();
+                directProxy(callback);
             }
         }else{
             console.error("proxyConfigs is not a map");
-            directProxy();
+            directProxy(callback);
         }
         
     });
@@ -80,7 +84,7 @@ export async function openCurrProxy() {
 
 }
 
-export function changeProxy(proxyConfig: any) {
+export function changeProxy(proxyConfig: any, callback: Function) {
     console.log("changeProxy", proxyConfig);
     
     var _config = {
@@ -89,7 +93,9 @@ export function changeProxy(proxyConfig: any) {
     };
 
     console.log("proxy.settings.set", _config);
-    browser.proxy.settings.set({ value: _config, scope: 'regular' }, console.log("porxy switched"));
+    browser.proxy.settings.set({ value: _config, scope: 'regular' }, console.log("porxy switched")).then(() => {
+        callback();
+    });
 
 
     reDrawIcon(proxyConfig.color, "");

@@ -9,7 +9,7 @@ export default defineConfig({
     name: "__MSG_plugin_name__",
     description: "__MSG_plugin_desc__",
     default_locale: "en",
-    version: "3.1.7",
+    version: "3.1.8",
     minimum_chrome_version: "88.0.0",
     author: "hicode0101@gmail.com",
     action: {

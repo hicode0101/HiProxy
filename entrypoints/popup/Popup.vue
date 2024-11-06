@@ -109,23 +109,25 @@ function renderColorIcon(icon: Component, colorCode: string) {
 function onMenuChange(key: string, item: MenuOption) {
     switch(key){
         case "pop-menu-Direct":
-            directProxy();
+            directProxy(closePopup);
             break;
         case "pop-menu-System":
-            systemProxy();
+            systemProxy(closePopup);
             break;
         case "pop-menu-Options":
             openOptions();
+            closePopup();
             break;
         case "pop-menu-MyIp":
             queryMyIp();
+            closePopup();
             break;
         default:
             console.log("^_^");
-            onChangeProxy(key, item);
+            onChangeProxy(key, item, closePopup);
     }
     
-    closePopup();
+    
 }
 
 function closePopup1() {
@@ -133,10 +135,10 @@ function closePopup1() {
 }
 
 function closePopup() {
-
+    window.close();
     // If the popup is opened as a tab, the above won't work. Let's reload then.
     document.body.style.opacity = "0";
-    setTimeout(function () { window.close();history.go(0); }, 300);
+    setTimeout(function () { history.go(0); }, 300);
 }
 
 function openOptions() {
@@ -157,10 +159,10 @@ function queryMyIp() {
 }
 
 
-async function onChangeProxy(key: string, item: MenuOption) {
+async function onChangeProxy(key: string, item: MenuOption, callback: Function) {
 
     currProxyPidSet(key);
-    openCurrProxy();
+    openCurrProxy(callback);
     
 }
 
@@ -176,7 +178,7 @@ async function renderProxyConfigList(callback: Function) {
             });
         }else{
             console.error("proxyConfigs is not a map");
-            directProxy();
+            directProxy(closePopup);
         }
         
     });
