@@ -14,14 +14,14 @@ export default defineBackground(() => {
       //browser.tabs.create({ url: "/options.html" });
     }
 
-    directProxy();
+    directProxy(()=>{});
 
   });
 
   browser.runtime.onStartup.addListener((event: any) => {
     console.log("onStartup", new Date().toLocaleTimeString());
 
-    directProxy();
+    directProxy(()=>{});
 
   });
 
