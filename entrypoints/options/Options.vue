@@ -391,7 +391,7 @@ async function saveConfigs() {
     
     //setTimeout(() => {refreshPage();},2000);
 
-    openCurrProxy();
+    openCurrProxy(()=>{});
     
     //message.success(browser.i18n.getMessage('options_msg_save_success'),{duration:2000, onAfterLeave: () => {refreshPage();}});
     message.success(browser.i18n.getMessage('options_msg_save_success'),{duration:2000, onAfterLeave: () => {}});
