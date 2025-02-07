@@ -14,10 +14,10 @@ export async function directProxy(callback:Function) {
     
     showCurrProxy();
     reDrawIcon("#9b9b9b", "");
-    currProxyPidRemove();
+    //currProxyPidRemove();
     
     let currProxyPid = await currProxyPidGet();
-    console.log("currProxyPid", currProxyPid);
+    console.log("directProxy currProxyPid", currProxyPid);
 
 }
 
@@ -29,7 +29,7 @@ export function systemProxy(callback:Function) {
 
     showCurrProxy();
     reDrawIcon("#000000", "");
-    currProxyPidRemove();
+    //currProxyPidRemove();
 
 }
 
@@ -46,7 +46,7 @@ export async function proxyConfigsInit() {
   console.log("proxyConfigsInit", new Date().toLocaleTimeString());
 
   let currProxyPid = await currProxyPidGet();
-  console.log("currProxyPid", currProxyPid);
+  console.log("proxyConfigsInit currProxyPid", currProxyPid);
 
   //storageClear();
 
@@ -63,7 +63,7 @@ export async function proxyConfigsInit() {
 
 export async function openCurrProxy(callback: Function) {
     let currProxyPid = await currProxyPidGet();
-    console.log("currProxyPid", currProxyPid);
+    console.log("openCurrProxy currProxyPid", currProxyPid);
 
     proxyConfigsGetByCallback((result: Map<string,any>)=>{
         let proxyConfigs = result;
@@ -71,6 +71,8 @@ export async function openCurrProxy(callback: Function) {
             if (currProxyPid != undefined && proxyConfigs.has(currProxyPid) == true) {
                 let proxyConfig = proxyConfigs.get(currProxyPid);
                 changeProxy(proxyConfig, callback);
+            }else if(currProxyPid == "system"){
+                systemProxy(callback);
             } else {
                 directProxy(callback);
             }

@@ -23,6 +23,12 @@
     "options_tab_bypass_doc": {
         "message": "通配符说明文档"      
     },
+    "options_tab_export": {
+        "message": "导入导出"      
+    },
+    "options_tab_others": {
+        "message": "其它配置"      
+    },
     "options_tab_about": {
         "message": "关于"      
     },

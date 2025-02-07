@@ -21,7 +21,19 @@ export default defineBackground(() => {
   browser.runtime.onStartup.addListener((event: any) => {
     console.log("onStartup", new Date().toLocaleTimeString());
 
-    directProxy(()=>{});
+    //directProxy(()=>{});
+
+    browser.storage.local.get(["useLastProxy"]).then((result : any)=>  {
+      console.log("useLastProxy is ", result.useLastProxy);
+      
+      if(result.useLastProxy == true){
+        console.log("openCurrProxy");
+        openCurrProxy(()=>{});
+      }else{
+        directProxy(()=>{});
+      }
+      
+  });
 
   });
 

@@ -109,9 +109,11 @@ function renderColorIcon(icon: Component, colorCode: string) {
 function onMenuChange(key: string, item: MenuOption) {
     switch(key){
         case "pop-menu-Direct":
+            currProxyPidSet("direct");    
             directProxy(closePopup);
             break;
         case "pop-menu-System":
+            currProxyPidSet("system");      
             systemProxy(closePopup);
             break;
         case "pop-menu-Options":

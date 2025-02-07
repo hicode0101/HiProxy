@@ -58,6 +58,67 @@
 
 
                     </n-tab-pane>
+                    <n-tab-pane name="export" :tab="browser.i18n.getMessage('options_tab_export')">
+
+                        <n-table >
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <n-alert type="info">
+                                            在这里您可以将当前的配置导出进行备份或分享，也可以在这里通过导入文件直接还原个性化的配置参数。
+                                        </n-alert>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>导出：</td>
+                                    <td>
+                                        
+                                        <n-button type="info" @click="downloadConfigs">
+                                            导出当前配置
+                                        </n-button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>导入：</td>
+                                    <td>
+                                        
+                                        <input type="file" @change="handleFileInput" />
+                                        <n-button type="warning" @click="importConfigs">
+                                            导入配置
+                                        </n-button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>重置：</td>
+                                    <td>
+                                        
+                                        <n-button type="error" @click="resetConfigs">
+                                            重置（还原到初始配置）
+                                        </n-button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </n-table>
+
+                        
+
+                    </n-tab-pane>
+                    <n-tab-pane name="others" :tab="browser.i18n.getMessage('options_tab_others')">
+                        <n-table >
+                            <tbody>
+                               
+                                <tr>
+                                    <td>默认上一次代理：</td>
+                                    <td>
+                                        <n-switch v-model:value="useLastProxy" @update:value="useLastProxyChange" />
+                                        （每次重新启动浏览器时，自动使用上一次使用的代理）
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </n-table>
+
+                    </n-tab-pane>
                     <n-tab-pane name="tabBypassDoc" :tab="browser.i18n.getMessage('options_tab_bypass_doc')">
 
                         <n-space vertical>
@@ -275,7 +336,8 @@ import {
 } from '@vicons/ionicons5'
 
 import { AppsListDetail24Regular as DetailIcon } from '@vicons/fluent'
-
+import { download } from 'naive-ui/es/_utils'
+import type { UploadFileInfo } from 'naive-ui'
 
 const message = useMessage()
 const dialog = useDialog()
@@ -288,6 +350,10 @@ let detailBypassHost = ref("");
 
 let tmpMsg = ref("");
 let tmpMsg2 = ref("");
+
+let useLastProxy = ref(false);
+let importContent = ref("");
+
 
 let msgConfig = browser.i18n.getMessage('options_tab_proxy_config');
 
@@ -332,7 +398,12 @@ let proxyTypeOptions = ['http', 'https', 'socks4', 'socks5'].map(
       );
 
 
-
+browser.storage.local.get(["useLastProxy"]).then((result : any)=>  {
+    console.log("useLastProxy is ", result.useLastProxy);
+    
+    useLastProxy.value = result.useLastProxy
+    
+});
 
 browser.storage.local.get(["proxyConfigs"]).then((result: any) => {
     
@@ -400,7 +471,7 @@ async function saveConfigs() {
 function resetConfigs() {
     //message.info("resetConfigs ...");
     
-    dialog.warning({
+    dialog.error({
           title: browser.i18n.getMessage('options_msg_reset_dialog_title'),
           content: browser.i18n.getMessage('options_msg_reset_dialog_content'),
           positiveText: browser.i18n.getMessage('options_msg_reset_dialog_positiveText'),
@@ -525,6 +596,79 @@ function checkForInput() {
     });
 
     return result;
+}
+
+function useLastProxyChange(value: boolean){
+    useLastProxySet(useLastProxy.value);
+}
+
+async function handleFileInput(event: Event) {
+  const target = event.target as HTMLInputElement;
+  const file = target.files?.[0];
+  if (file) {
+    try {
+      const reader = new FileReader();
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        const content = e.target?.result;
+        if (typeof content === 'string') {
+            console.log('导入的配置:', content);
+            importContent.value = content;
+        }else{
+            console.error('配置文件格式不正确');
+        }
+      };
+      reader.readAsText(file);
+    } catch (error) {
+      console.error('读取文件时出错:', error);
+    }
+  }
+}
+
+function importConfigs() {
+    let content = importContent.value;
+    try {
+        const jsonObj = JSON.parse(content);
+        useLastProxy.value = jsonObj.UseLastProxy;
+        proxyConfigList.value = jsonObj.ProxyConfigs;
+
+        useLastProxySet(jsonObj.UseLastProxy);
+        saveConfigs();
+
+    } catch (error) {
+        console.error('解析文件内容时出错:', error);
+    }
+}
+
+function downloadConfigs() {
+    
+    let configObj = {}
+    configObj.Version = 319;
+    configObj.UseLastProxy = useLastProxy.value;
+    configObj.ProxyConfigs = proxyConfigList.value;
+
+    const dataStr = JSON.stringify(configObj, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(dataBlob);
+    downloadLink.download = 'HiProxyConfig.json';
+    downloadLink.click();
+
+    // 释放 URL 对象以节省内存
+    URL.revokeObjectURL(downloadLink.href);
+
+}
+
+function downloadText(fileName :string, text :string) {
+    //downloadText('test.txt', '测试');
+
+    let url = window.URL || window.webkitURL || window;
+    let blob = new Blob([text]);
+    let saveLink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+    saveLink.href = url.createObjectURL(blob);
+    // 设置 download 属性
+    saveLink.download = fileName;
+    saveLink.click();
 }
 
 </script>

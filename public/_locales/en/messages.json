@@ -23,6 +23,12 @@
     "options_tab_bypass_doc": {
         "message": "Bypass Doc"      
     },
+    "options_tab_export": {
+        "message": "Export/Import"      
+    },
+    "options_tab_others": {
+        "message": "Others"      
+    },
     "options_tab_about": {
         "message": "About"      
     },

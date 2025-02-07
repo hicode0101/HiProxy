@@ -1,8 +1,8 @@
 
 
 export async function currProxyPidGet() {
-    //localStorage.getItem('UserName');
-    //chrome.storage.local.get(["UserName"]).then((result)=> {console.log("Value is ",result.UserName);});
+    //localStorage.getItem('currProxyPid');
+    //chrome.storage.local.get(["currProxyPid"]).then((result)=> {console.log("Value is ",result.currProxyPid);});
     
     const _result = await browser.storage.local.get("currProxyPid");
     console.log(_result);
@@ -12,8 +12,8 @@ export async function currProxyPidGet() {
 
 
 export async function currProxyPidSet(currProxyPid: string) {
-    //localStorage.setItem('UserName', 'taven2');
-    //chrome.storage.local.set({"UserName":"taven"}).then(()=> {console.log("Value is set");})
+    //localStorage.setItem('currProxyPid', 'taven2');
+    //chrome.storage.local.set({"currProxyPid":"system"}).then(()=> {console.log("Value is set");})
 
     await browser.storage.local.set({ "currProxyPid": currProxyPid });
 
@@ -21,6 +21,21 @@ export async function currProxyPidSet(currProxyPid: string) {
 
 export function currProxyPidRemove() {
     browser.storage.local.remove("currProxyPid");
+}
+
+export async function useLastProxyGet() {
+
+    const _result = await browser.storage.local.get("useLastProxy");
+    console.log(_result);
+    //console.log(_result.useLastProxy);
+    return _result.useLastProxy;
+}
+
+
+export async function useLastProxySet(useLastProxy: boolean) {
+
+    await browser.storage.local.set({ "useLastProxy": useLastProxy });
+
 }
 
 export async function saveProxyConfigs(proxyConfigsMap : Map<string,any>){
