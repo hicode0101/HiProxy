@@ -265,6 +265,25 @@ export function getDefaultConfigs() {
 
     proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
 
+    proxyConfig = {
+        pid: "loop-8080",
+        name: "loop-8080",
+        color: "#8892AB",
+        mode: "fixed_servers",
+        rules: {
+            singleProxy: {
+                scheme: "http",
+                host: "127.0.0.1",
+                port: 8080,
+            },
+            bypassList: [
+                "<-loopback>"
+            ]
+        }
+    };
+
+    proxyConfigsMap.set(proxyConfig.pid, proxyConfig);
+
     return proxyConfigsMap;
 }
 

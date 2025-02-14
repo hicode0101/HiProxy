@@ -101,6 +101,36 @@
     "options_msg_input_detail_auth_password": {
         "message": "PassWord"      
     },
+    "options_msg_export_tips": {
+        "message": "Here, you can export the current configuration for backup or sharing, or directly restore personalized configuration parameters by importing files."      
+    },
+    "options_msg_export_lbl": {
+        "message": "Export"      
+    },
+    "options_msg_export_btn": {
+        "message": "Export Config"      
+    },
+    "options_msg_import_lbl": {
+        "message": "Import"      
+    },
+    "options_msg_import_btn": {
+        "message": "Import Config"      
+    },
+    "options_msg_import_reset_lbl": {
+        "message": "Reset"      
+    },
+    "options_msg_import_reset_btn": {
+        "message": "Reset (restore to initial configuration)"      
+    },
+    "options_msg_others_uselastproxy_lbl": {
+        "message": "Default Proxy"      
+    },
+    "options_msg_others_uselastproxy_switch": {
+        "message": "(Use the last proxy)"      
+    },
+    "options_msg_xxxxxxxxx": {
+        "message": "xxxxxxxxxxxx"      
+    },
     "test_note": {
         "message": ""      
     }

@@ -101,6 +101,36 @@
     "options_msg_input_detail_auth_password": {
         "message": "密码"      
     },
+    "options_msg_export_tips": {
+        "message": "在这里您可以将当前的配置导出进行备份或分享，也可以在这里通过导入文件直接还原个性化的配置参数。"      
+    },
+    "options_msg_export_lbl": {
+        "message": "导出"      
+    },
+    "options_msg_export_btn": {
+        "message": "导出当前配置"      
+    },
+    "options_msg_import_lbl": {
+        "message": "导入"      
+    },
+    "options_msg_import_btn": {
+        "message": "导入配置"      
+    },
+    "options_msg_import_reset_lbl": {
+        "message": "重置"      
+    },
+    "options_msg_import_reset_btn": {
+        "message": "重置（还原到初始配置）"      
+    },
+    "options_msg_others_uselastproxy_lbl": {
+        "message": "默认上一次代理"      
+    },
+    "options_msg_others_uselastproxy_switch": {
+        "message": "（每次重新启动浏览器时，自动使用上一次使用的代理）"      
+    },
+    "options_msg_xxxxxxxxx": {
+        "message": "xxxxxxxxxxxx"      
+    },
     "test_note": {
         "message": ""      
     }

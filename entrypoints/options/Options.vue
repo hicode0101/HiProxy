@@ -66,35 +66,36 @@
                                     <td colspan="2">
                                         <n-alert type="info">
                                             在这里您可以将当前的配置导出进行备份或分享，也可以在这里通过导入文件直接还原个性化的配置参数。
+                                            {{ browser.i18n.getMessage('options_msg_export_tips') }}
                                         </n-alert>
                                     </td>
                                     
                                 </tr>
                                 <tr>
-                                    <td>导出：</td>
+                                    <td>{{ browser.i18n.getMessage('options_msg_export_lbl') }}导出：</td>
                                     <td>
                                         
                                         <n-button type="info" @click="downloadConfigs">
-                                            导出当前配置
+                                            {{ browser.i18n.getMessage('options_msg_export_btn') }}导出当前配置
                                         </n-button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>导入：</td>
+                                    <td>{{ browser.i18n.getMessage('options_msg_import_lbl') }}导入：</td>
                                     <td>
                                         
                                         <input type="file" @change="handleFileInput" />
                                         <n-button type="warning" @click="importConfigs">
-                                            导入配置
+                                            {{ browser.i18n.getMessage('options_msg_import_btn') }}导入配置
                                         </n-button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>重置：</td>
+                                    <td>{{ browser.i18n.getMessage('options_msg_import_reset_lbl') }}重置：</td>
                                     <td>
                                         
                                         <n-button type="error" @click="resetConfigs">
-                                            重置（还原到初始配置）
+                                            {{ browser.i18n.getMessage('options_msg_import_reset_btn') }}重置（还原到初始配置）
                                         </n-button>
                                     </td>
                                 </tr>
@@ -109,10 +110,10 @@
                             <tbody>
                                
                                 <tr>
-                                    <td>默认上一次代理：</td>
+                                    <td>{{ browser.i18n.getMessage('options_msg_others_uselastproxy_lbl') }}默认上一次代理：</td>
                                     <td>
                                         <n-switch v-model:value="useLastProxy" @update:value="useLastProxyChange" />
-                                        （每次重新启动浏览器时，自动使用上一次使用的代理）
+                                        {{ browser.i18n.getMessage('options_msg_others_uselastproxy_switch') }}（每次重新启动浏览器时，自动使用上一次使用的代理）
                                     </td>
                                 </tr>
                             </tbody>
