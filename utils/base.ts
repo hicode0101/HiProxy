@@ -58,6 +58,9 @@ export async function proxyConfigsInit() {
   //proxyConfigsMap = await proxyConfigsGet();
   ///console.log(proxyConfigsMap);
 
+  currProxyPidSet("direct");    
+  directProxy(()=>{});
+
 }
 
 
