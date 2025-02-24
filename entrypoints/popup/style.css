@@ -37,6 +37,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 210px;
+  background-color: #fdfdfd;
 }
 
 h1 {
