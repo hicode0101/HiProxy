@@ -34,11 +34,17 @@ https://github.com/hicode0101/HiProxy/releases
 <br />
 
 
-# 安装和使用视频教程：
+# 插件安装和使用视频教程：
  
 
 <a href="https://www.bilibili.com/video/BV1tVS4YXEUT" target="_blank">https://www.bilibili.com/video/BV1tVS4YXEUT</a>
-  
+
+
+# 支持socks5用户名密码代理的视频教程：
+
+<a href="https://www.bilibili.com/video/BV18rPsedEXs" target="_blank">https://www.bilibili.com/video/BV18rPsedEXs</a>
+
+
 点击链接跳转至视频播放页面。
   
 <br />
