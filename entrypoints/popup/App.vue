@@ -24,5 +24,7 @@ import Popup from "./Popup.vue"
 </script>
 
 <style scoped>
-
+  body{
+    background-color: #fdfdfd;
+  }
 </style>
