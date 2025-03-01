@@ -33,12 +33,15 @@ https://github.com/hicode0101/HiProxy/releases
 <br />
 <br />
 
+---
 
-# 插件安装和使用视频教程：
+### 插件安装和使用视频教程：
 <a href="https://www.bilibili.com/video/BV1tVS4YXEUT" target="_blank">https://www.bilibili.com/video/BV1tVS4YXEUT</a>
 
 
-# 支持socks5用户名密码代理的视频教程：
+   
+
+### 支持socks5用户名密码代理的视频教程：
 
 <a href="https://www.bilibili.com/video/BV18rPsedEXs" target="_blank">https://www.bilibili.com/video/BV18rPsedEXs</a>
 
@@ -71,13 +74,21 @@ https://github.com/hicode0101/HiProxy/releases
 如果你在我分享的工具中，遇到了问题，请联系我，我会及时回复。
 
 如果你在我分享的工具上，有其它功能需求，也请告知我，我非常乐意尝试满足你的需求。
+  
+   
+   
+---
+   
 
-## 我的微信：
+
+### 我的微信：
 
 <img src="./screenshot/weixin.png" width="200" />
 
+  
+---
 
-## 微信公众号：
+### 微信公众号：
 
 <img src="./screenshot/gzh.png" width="300" />
 
