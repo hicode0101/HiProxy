@@ -35,8 +35,6 @@ https://github.com/hicode0101/HiProxy/releases
 
 
 # 插件安装和使用视频教程：
- 
-
 <a href="https://www.bilibili.com/video/BV1tVS4YXEUT" target="_blank">https://www.bilibili.com/video/BV1tVS4YXEUT</a>
 
 
@@ -58,6 +56,30 @@ https://github.com/hicode0101/HiProxy/releases
 <img src="./screenshot/screen_1.png" width="600" />
 
 <img src="./screenshot/screen_2.png" width="600" />
+
+
+## 作者申明
+
+本插件仅供白帽子安全研究和技术交流使用，禁止用于商业用途。
+
+🙋‍♀️我的白帽昵称：犀利的远哥
+
+💞️我的微信：hicode0101
+
+🧙微信公众号：远哥说安全
+
+如果你在我分享的工具中，遇到了问题，请联系我，我会及时回复。
+
+如果你在我分享的工具上，有其它功能需求，也请告知我，我非常乐意尝试满足你的需求。
+
+## 我的微信：
+
+<img src="./screenshot/weixin.png" width="200" />
+
+
+## 微信公众号：
+
+<img src="./screenshot/gzh.png" width="300" />
 
 
 
