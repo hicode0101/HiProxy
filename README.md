@@ -17,6 +17,9 @@ vue3 + wxt + ts
 https://github.com/hicode0101/HiProxy/releases
 
 
+国际用户可以直接去 Chrome Store：
+https://chromewebstore.google.com/detail/hiproxy/ammmjkfjeahfkfffncemmbpfdboclfah
+
 
 使用方式：
 1、进chrome 浏览器扩展，直达地址 chrome://extensions/
