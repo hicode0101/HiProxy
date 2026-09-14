@@ -68,9 +68,10 @@
 | 💬 微信 | `hicode0101` |
 | 📢 公众号 | 远哥说安全 |
 
+
 | 个人微信 | 微信公众号 |
 | :---: | :---: |
-| ![微信](./screenshot/weixin.png) | ![公众号](./screenshot/gzh.png) |
+| <img src="./screenshot/weixin.png" width="180" /> | <img src="./screenshot/gzh.png" width="280" /> |
 
 使用中遇到问题欢迎联系我，我会及时回复；如有功能需求，也请告知，我非常乐意尝试满足。
 
