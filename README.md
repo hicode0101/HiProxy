@@ -21,7 +21,7 @@
 
 ## 📸 界面预览
 
-![HiProxy 代理配置界面](ScreenShot/ScreenShot-1-cn.png)
+![HiProxy 代理配置界面](ScreenShot/ScreenShot-1.png)
 
 ## ✨ 功能特性
 
@@ -103,6 +103,8 @@ pnpm compile     # vue-tsc 类型检查
 ```
 
 技术栈：**Vue 3.5 + WXT 0.20 + TypeScript 5 + Naive UI（按需引入）**，最低支持 Chrome 100。
+
+**CI 自动打包**：仓库内置 GitHub Actions（`.github/workflows/release.yml`）——推送到 `main` 自动类型检查、构建并上传 zip 产物；推送 `v*` 标签（如 `v4.0.1`）会自动创建 GitHub Release 并附上对应 zip。
 
 ## 🗂 目录结构
 

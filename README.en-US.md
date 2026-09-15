@@ -21,7 +21,7 @@ English | [简体中文](README.md)
 
 ## 📸 Screenshots
 
-![HiProxy profiles view](ScreenShot/ScreenShot-1-en.png)
+![HiProxy profiles view](ScreenShot/ScreenShot-1.png)
 
 ## ✨ Features
 
@@ -103,6 +103,8 @@ pnpm compile     # vue-tsc type check
 ```
 
 Stack: **Vue 3.5 + WXT 0.20 + TypeScript 5 + Naive UI (tree-shaken)**. Minimum Chrome version: 100.
+
+**CI packaging**: A GitHub Actions workflow is included (`.github/workflows/release.yml`) — pushes to `main` run type check + build and upload the zip as a workflow artifact; pushing a `v*` tag (e.g. `v4.0.1`) automatically creates a GitHub Release with the zip attached.
 
 ## 🗂 Project layout
 

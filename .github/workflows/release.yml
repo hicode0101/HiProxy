@@ -1,0 +1,64 @@
+# HiProxy CI：自动类型检查 + 构建 + 打包 zip
+#
+# 触发时机：
+# - push 到 main：构建并把 zip 上传为 Actions 产物（Artifacts），供随时下载验证
+# - push v* 标签（如 v4.0.1）：构建并把 zip 附到 GitHub Release（对应 README 的 Releases 下载入口）
+# - PR / 手动触发（workflow_dispatch）：仅构建验证
+#
+# pnpm 版本从 package.json 的 packageManager 字段读取，本地升级 pnpm 后 CI 自动跟随。
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 仅打 tag 时创建 Release 需要；其余触发场景 token 仍为只读
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 不写 version 入参：action 会读 package.json 的 "packageManager" 字段
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # vue-tsc 全量类型检查，先于打包拦截类型错误
+      - name: Type check
+        run: pnpm compile
+
+      # wxt build + wxt zip：产出 .output/hiproxy-<版本号>-chrome.zip
+      - name: Build and zip
+        run: pnpm zip
+
+      # 每次 main 构建都留一份 zip 产物，可在 Actions 页面下载
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hiproxy-chrome-${{ github.sha }}
+          path: .output/*.zip
+          if-no-files-found: error
+          retention-days: 14
+
+      # 只有 v* 标签才创建 Release（发布正式版）
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: .output/*.zip
+          generate_release_notes: true

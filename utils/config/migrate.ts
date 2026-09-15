@@ -56,5 +56,6 @@ export function migrateLegacyBackup(old: LegacyBackupV1): ExtensionConfig {
     pacScript: '',
     useLastProxy: old.UseLastProxy === true,
     showBadge: true,
+    uiLocale: 'auto',
   };
 }
