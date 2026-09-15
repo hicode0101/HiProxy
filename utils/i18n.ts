@@ -35,15 +35,35 @@ function resolveLocale(s: UiLocaleSetting): ResolvedLocale {
   return browserLocale().toLowerCase().startsWith('zh') ? 'zh_CN' : 'en';
 }
 
+/**
+ * 把 Chrome 的命名占位符（$MSG$）改写为其声明的 content（如 $1），
+ * 后续统一交给 substitute() 按位置替换。占位符名大小写不敏感
+ * （Chrome 约定 placeholders 的 key 小写、message 内常写大写）。
+ */
+function flattenPlaceholders(
+  template: string,
+  placeholders?: Record<string, { content?: string }>,
+): string {
+  if (!placeholders) return template;
+  let out = template;
+  for (const [name, def] of Object.entries(placeholders)) {
+    const content = def?.content;
+    if (!content) continue;
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    out = out.replace(new RegExp(`\\$${escaped}\\$`, 'gi'), content);
+  }
+  return out;
+}
+
 /** 从扩展包内加载对应语言的 messages.json（key → message 模板） */
 async function loadMessages(target: ResolvedLocale): Promise<Record<string, string>> {
   try {
     const url = browser.runtime.getURL(`/_locales/${target}/messages.json`);
     const res = await fetch(url);
-    const data = (await res.json()) as Record<string, { message?: string }>;
+    const data = (await res.json()) as Record<string, { message?: string; placeholders?: Record<string, { content?: string }> }>;
     const out: Record<string, string> = {};
     for (const [key, item] of Object.entries(data)) {
-      out[key] = item?.message ?? key;
+      out[key] = flattenPlaceholders(item?.message ?? key, item?.placeholders);
     }
     return out;
   } catch {

@@ -2,7 +2,7 @@
   "name": "hiproxy",
   "description": "HiProxy - 面向安全研究的浏览器代理管理扩展",
   "private": true,
-  "version": "4.0.0",
+  "version": "4.0.2",
   "type": "module",
   "packageManager": "pnpm@10.17.1",
   "scripts": {
