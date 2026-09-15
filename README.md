@@ -21,7 +21,7 @@
 
 ## 📸 界面预览
 
-![HiProxy 代理配置界面](ScreenShot/ScreenShot-1.png)
+![HiProxy 代理配置界面](screenshot/ScreenShot-1-cn.png)
 
 ## ✨ 功能特性
 

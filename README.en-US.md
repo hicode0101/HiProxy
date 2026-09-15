@@ -21,7 +21,7 @@ English | [简体中文](README.md)
 
 ## 📸 Screenshots
 
-![HiProxy profiles view](ScreenShot/ScreenShot-1.png)
+![HiProxy profiles view](screenshot/ScreenShot-1-en.png)
 
 ## ✨ Features
 
