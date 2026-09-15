@@ -154,10 +154,6 @@ HiProxy/
 
 **犀利的远哥（hicode0101）** — 白帽子安全研究者
 
-| 💬 微信 | 📢 公众号 |
-| :---: | :---: |
-| <img src="screenshot/weixin.png" width="180" /> | <img src="screenshot/gzh.png" width="180" /> |
-
 使用中遇到问题欢迎联系，功能需求也请告知。
 
 ## 📜 声明

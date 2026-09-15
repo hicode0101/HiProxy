@@ -154,9 +154,6 @@ The extension **collects and uploads no data** — all settings stay in your loc
 
 **犀利的远哥 (hicode0101)** — white-hat security researcher
 
-| 💬 WeChat | 📢 Official account |
-| :---: | :---: |
-| <img src="screenshot/weixin.png" width="180" /> | <img src="screenshot/gzh.png" width="180" /> |
 
 Questions and feature requests are always welcome.
 
