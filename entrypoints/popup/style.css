@@ -1,86 +1,155 @@
+/* ============================================================
+   Popup 样式 — Win11 亚克力菜单风格
+   ============================================================ */
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --font-win11: "Segoe UI Variable Text", "Segoe UI", "Microsoft YaHei UI",
+    "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --accent: #005fb8;
+  --text-1: #1b1b1b;
+  --text-2: #616161;
+  --hover: rgba(0, 0, 0, 0.045);
+  --active-bg: rgba(0, 95, 184, 0.1);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+html,
 body {
   margin: 0;
+  width: 312px;
+  font-family: var(--font-win11);
+  color: var(--text-1);
+}
+
+/* 亚克力面板 */
+.popup {
+  background: rgba(249, 249, 249, 0.88);
+  backdrop-filter: blur(28px) saturate(1.2);
+  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ---------- 头部状态 ---------- */
+
+.header {
   display: flex;
-  place-items: center;
-  min-width: 210px;
-  background-color: #fdfdfd;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px 10px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex: none;
+  background: conic-gradient(from 210deg, #0067c0, #8764b8, #00b294, #f7a500, #0067c0);
+  -webkit-mask: radial-gradient(closest-side, transparent 52%, #000 54%);
+  mask: radial-gradient(closest-side, transparent 52%, #000 54%);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.header .title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
 }
 
-.card {
-  padding: 2em;
+.header .status {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-2);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-#app {
-  min-width: 210px;
+.header .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ---------- 菜单 ---------- */
+
+.divider {
+  height: 1px;
+  margin: 4px 10px;
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1px 6px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  cursor: default;
+  user-select: none;
+  transition: background 0.1s;
+}
+
+.menu-item:hover {
+  background: var(--hover);
+}
+
+.menu-item:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.menu-item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: #424242;
+}
+
+.menu-item .label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 当前激活项：淡蓝底 + 对勾 */
+.menu-item.active {
+  background: var(--active-bg);
+  font-weight: 600;
+}
+
+.menu-item.active .check {
+  color: var(--accent);
+  flex: none;
+}
+
+.menu-item.active .icon {
+  color: var(--accent);
+}
+
+/* 菜单小节标题（如"代理配置"） */
+.section-title {
+  padding: 6px 16px 2px;
+  font-size: 11.5px;
+  color: #8a8a8a;
+}
+
+/* 空态提示 */
+.empty-tip {
+  padding: 6px 16px 10px;
+  font-size: 12px;
+  color: #9a9a9a;
 }

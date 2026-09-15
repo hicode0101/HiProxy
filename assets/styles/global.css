@@ -1,0 +1,158 @@
+/* ============================================================
+   HiProxy 全局样式 — Win11 Fluent 风格
+   - Mica 质感背景（浅灰底 + 极淡的强调色光晕）
+   - 亚克力卡片（半透明 + 背景模糊 + 细边框 + 柔和阴影）
+   - Win11 风格滚动条
+   ============================================================ */
+
+:root {
+  --font-win11: "Segoe UI Variable Text", "Segoe UI", "Microsoft YaHei UI",
+    "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --accent: #005fb8;
+  --accent-hover: #0067c0;
+  --text-1: #1b1b1b;
+  --text-2: #616161;
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(0, 0, 0, 0.055);
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-win11);
+  color: var(--text-1);
+  /* Mica 质感：底色 + 两团极淡的光晕 */
+  background:
+    radial-gradient(1100px 560px at 88% -10%, rgba(0, 103, 192, 0.07), transparent 62%),
+    radial-gradient(900px 520px at -8% 108%, rgba(135, 100, 184, 0.055), transparent 60%),
+    #f2f3f6;
+  background-attachment: fixed;
+}
+
+/* ---------- 布局骨架 ---------- */
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-card {
+  margin-top: 18px;
+  flex: 1;
+}
+
+.footer {
+  padding: 22px 0 26px;
+  text-align: center;
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 页头（HiProxy 标题 + 状态） ---------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* 圆环 Logo：呼应工具栏的圆环图标 */
+.hero-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  flex: none;
+  background: conic-gradient(from 210deg, #0067c0, #8764b8, #00b294, #f7a500, #0067c0);
+  -webkit-mask: radial-gradient(closest-side, transparent 52%, #000 54%);
+  mask: radial-gradient(closest-side, transparent 52%, #000 54%);
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.hero-desc {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.hero-status {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.hero-status .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+
+/* ---------- 亚克力卡片 ---------- */
+
+.win-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(24px) saturate(1.15);
+  -webkit-backdrop-filter: blur(24px) saturate(1.15);
+}
+
+/* ---------- Win11 滚动条 ---------- */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a5a5a5;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

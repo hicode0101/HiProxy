@@ -1,137 +1,116 @@
 {
-    "plugin_name": {
-        "message": "HiProxy"      
-    },
-    "plugin_desc": {
-        "message": "A proxy extension for Chrome"      
-    },
-    "pop_menu_direct": {
-        "message": "Direct"      
-    },
-    "pop_menu_system": {
-        "message": "System"      
-    },
-    "pop_menu_options": {
-        "message": "Options"      
-    },
-    "pop_menu_myip": {
-        "message": "Query My IP"      
-    },
-    "options_tab_proxy_config": {
-        "message": "Proxy Configs"      
-    },
-    "options_tab_bypass_doc": {
-        "message": "Bypass Doc"      
-    },
-    "options_tab_export": {
-        "message": "Export/Import"      
-    },
-    "options_tab_others": {
-        "message": "Others"      
-    },
-    "options_tab_about": {
-        "message": "About"      
-    },
-    "options_btn_addNew": {
-        "message": "Add New Config"      
-    },
-    "options_msg_input_proxy_name_ph": {
-        "message": "a name for config"      
-    },
-    "options_btn_save_all": {
-        "message": "Save All"      
-    },
-    "options_btn_reset": {
-        "message": "Reset"      
-    },
-    "options_btn_detail_ok": {
-        "message": "OK"      
-    },
-    "options_btn_detail_ok_tips": {
-        "message": "After modification, click the batch save button on the list interface to take effect"      
-    },
-    "options_about_project": {
-        "message": "Project"      
-    },
-    "options_about_version": {
-        "message": "Version"      
-    },
-    "options_about_author": {
-        "message": "Author"      
-    },
-    "options_msg_repeat_name": {
-        "message": "There are duplicate configuration names, please check!"      
-    },
-    "options_msg_save_success": {
-        "message": "Saved successfully! "      
-    },
-    "options_msg_reset_dialog_title": {
-        "message": "Operation warning"      
-    },
-    "options_msg_reset_dialog_content": {
-        "message": "Are you sure you want to reset all configurations？"      
-    },
-    "options_msg_reset_dialog_positiveText": {
-        "message": "Confirm"      
-    },
-    "options_msg_reset_dialog_negativeText": {
-        "message": "Cancel"      
-    },
-    "options_msg_input_name": {
-        "message": "The configuration name parameter is incorrect, please check"      
-    },
-    "options_msg_input_host": {
-        "message": "The host address parameters are incorrect, please check"      
-    },
-    "options_msg_input_port": {
-        "message": "The port parameters are incorrect (port range 0~65535), please check"      
-    },
-    "options_msg_input_detail_bypass": {
-        "message": "List of hosts connected without proxy: (one host per row)"      
-    },
-    "options_msg_input_detail_bypass_host_ph": {
-        "message": "host IP or domain wildcard"      
-    },
-    "options_msg_input_detail_auth": {
-        "message": "Proxy login: (If password login is not required, leave all options below blank)"      
-    },
-    "options_msg_input_detail_auth_username": {
-        "message": "UserName"      
-    },
-    "options_msg_input_detail_auth_password": {
-        "message": "PassWord"      
-    },
-    "options_msg_export_tips": {
-        "message": "Here, you can export the current configuration for backup or sharing, or directly restore personalized configuration parameters by importing files."      
-    },
-    "options_msg_export_lbl": {
-        "message": "Export"      
-    },
-    "options_msg_export_btn": {
-        "message": "Export Config"      
-    },
-    "options_msg_import_lbl": {
-        "message": "Import"      
-    },
-    "options_msg_import_btn": {
-        "message": "Import Config"      
-    },
-    "options_msg_import_reset_lbl": {
-        "message": "Reset"      
-    },
-    "options_msg_import_reset_btn": {
-        "message": "Reset (restore to initial configuration)"      
-    },
-    "options_msg_others_uselastproxy_lbl": {
-        "message": "Default Proxy"      
-    },
-    "options_msg_others_uselastproxy_switch": {
-        "message": "(Use the last proxy)"      
-    },
-    "options_msg_xxxxxxxxx": {
-        "message": "xxxxxxxxxxxx"      
-    },
-    "test_note": {
-        "message": ""      
-    }
+    "plugin_name": { "message": "HiProxy" },
+    "plugin_desc": { "message": "HiProxy - Proxy manager extension for security research" },
+
+    "status_current": { "message": "Current: " },
+
+    "mode_direct": { "message": "Direct" },
+    "mode_system": { "message": "System Proxy" },
+    "mode_fixed": { "message": "Fixed Servers" },
+    "mode_auto": { "message": "Auto Switch" },
+    "mode_pac": { "message": "PAC Script" },
+
+    "tab_profiles": { "message": "Profiles" },
+    "tab_auto": { "message": "Auto Switch" },
+    "tab_pac": { "message": "PAC Script" },
+    "tab_io": { "message": "Import / Export" },
+    "tab_others": { "message": "Others" },
+    "tab_doc": { "message": "Wildcard Docs" },
+    "tab_about": { "message": "About" },
+
+    "common_confirm": { "message": "OK" },
+    "common_cancel": { "message": "Cancel" },
+    "common_delete": { "message": "Delete" },
+
+    "pop_direct": { "message": "Direct" },
+    "pop_system": { "message": "System Proxy" },
+    "pop_auto": { "message": "Auto Switch" },
+    "pop_pac": { "message": "PAC Script" },
+    "pop_profiles_section": { "message": "Profiles" },
+    "pop_no_configs": { "message": "No profiles yet. Add one in Options first." },
+    "pop_options": { "message": "Options" },
+    "pop_myip": { "message": "Query My IP" },
+
+    "profiles_add": { "message": "Add Profile" },
+    "profiles_name_ph": { "message": "Profile name, e.g. http-8080" },
+    "profiles_in_use": { "message": "In use" },
+    "profiles_set_current": { "message": "Set as active proxy" },
+    "profiles_detail": { "message": "Edit bypass list & auth" },
+    "profiles_empty": { "message": "No profiles yet. Click the button above to add one." },
+    "profiles_save_all": { "message": "Save All" },
+    "profiles_save_ok": { "message": "Saved" },
+    "profiles_activated": { "message": "Switched to: $MSG$", "placeholders": { "msg": { "content": "$1" } } },
+    "profiles_reset": { "message": "Reset" },
+    "profiles_reset_ok": { "message": "Default profiles restored" },
+    "profiles_reset_confirm_title": { "message": "Warning" },
+    "profiles_reset_confirm": { "message": "Reset all settings? Your profiles, auto switch rules and PAC script will be cleared." },
+    "profiles_err_name_empty": { "message": "Profile name is required" },
+    "profiles_err_name_dup": { "message": "Duplicate profile name" },
+    "profiles_err_host_empty": { "message": "Host is required" },
+    "profiles_err_port_invalid": { "message": "Port must be an integer between 1 and 65535" },
+    "profiles_err_summary": { "message": "$MSG$ row(s) failed validation (marked red). Fix them before saving.", "placeholders": { "msg": { "content": "$1" } } },
+
+    "profiles_tpl_burp": { "message": "Burp HTTP (8080)" },
+    "profiles_tpl_clash_http": { "message": "HTTP (7890)" },
+    "profiles_tpl_clash_socks": { "message": "SOCKS5 (7891)" },
+    "profiles_tpl_v2rayn": { "message": "SOCKS5 (10808)" },
+    "profiles_tpl_ssh": { "message": "SOCKS5 (1080)" },
+    "profiles_tpl_blank": { "message": "Blank profile" },
+
+    "detail_bypass_title": { "message": "Hosts that bypass the proxy (one per line, wildcards supported, see Wildcard Docs)" },
+    "detail_bypass_ph": { "message": "127.0.0.1&#10;localhost&#10;*.internal.corp" },
+    "detail_auth_title": { "message": "Proxy auth (auto-filled for HTTP/HTTPS; SOCKS5 auth requires HiLocalProxy due to Chrome limitation)" },
+    "detail_auth_username": { "message": "Username" },
+    "detail_auth_password": { "message": "Password" },
+    "detail_ok": { "message": "Apply" },
+
+    "auto_desc": { "message": "Auto Switch: choose a proxy per domain. Rules are matched in order, first match wins. Enable it from the popup or by switching mode to Auto Switch." },
+    "auto_fallback": { "message": "Default target:" },
+    "auto_target_direct": { "message": "Direct" },
+    "auto_hint": { "message": "Changes apply instantly, no save needed" },
+    "auto_pattern_ph": { "message": "Domain pattern, e.g. *.google.com" },
+    "auto_add_rule": { "message": "Add rule" },
+    "auto_empty": { "message": "No rules yet. Added rules will route matched domains automatically." },
+    "auto_enable_hint": { "message": "Tip: *.example.com matches example.com and all its subdomains." },
+
+    "pac_desc": { "message": "PAC Script mode: take full control with a custom PAC script. The entry function must be FindProxyForURL(url, host)." },
+    "pac_save": { "message": "Save" },
+    "pac_save_enable": { "message": "Save & Enable" },
+    "pac_from_auto": { "message": "Generate from auto switch rules" },
+    "pac_reset_tpl": { "message": "Restore template" },
+    "pac_dirty_hint": { "message": "Unsaved changes" },
+    "pac_save_ok": { "message": "PAC script saved" },
+    "pac_enabled_ok": { "message": "PAC script saved and enabled" },
+    "pac_invalid_warn": { "message": "Missing FindProxyForURL entry function. This script will be ignored when enabled (fallback to direct)." },
+    "pac_err_non_ascii": { "message": "PAC script must contain ASCII characters only (Chrome limitation): remove non-ASCII characters such as Chinese comments before saving." },
+
+    "io_desc": { "message": "Export your settings for backup or sharing. Import supports the new format and auto-upgrades legacy 3.x backup files." },
+    "io_export_label": { "message": "Export:" },
+    "io_export": { "message": "Export current config" },
+    "io_export_ok": { "message": "Exported HiProxyConfig.json" },
+    "io_import_label": { "message": "Import:" },
+    "io_file_choose": { "message": "Choose file…" },
+    "io_import": { "message": "Import" },
+    "io_err_no_file": { "message": "Choose a config file first" },
+    "io_err_not_json": { "message": "File content is not valid JSON" },
+    "io_err_unknown_format": { "message": "Unrecognized config file format" },
+    "io_import_confirm_title": { "message": "Confirm import" },
+    "io_import_confirm": { "message": "Import $MSG1$ profile(s) and $MSG2$ auto switch rule(s), replacing all current settings. Continue?", "placeholders": { "msg1": { "content": "$1" }, "msg2": { "content": "$2" } } },
+    "io_imported": { "message": "Imported $MSG$ profile(s)", "placeholders": { "msg": { "content": "$1" } } },
+    "io_imported_legacy": { "message": "Legacy 3.x config detected and upgraded" },
+    "io_reset_label": { "message": "Reset:" },
+    "io_reset": { "message": "Reset (restore factory config)" },
+    "io_reset_confirm_title": { "message": "Warning" },
+    "io_reset_confirm": { "message": "Restore factory default config? All custom settings will be overwritten." },
+
+    "others_use_last": { "message": "Restore last proxy" },
+    "others_use_last_hint": { "message": "Automatically use the last active proxy every time the browser starts" },
+    "others_badge": { "message": "Show mode badge" },
+    "others_badge_hint": { "message": "Display a text badge (AUTO / PAC / SYS) on the toolbar icon" },
+
+    "others_lang_browser": { "message": "Browser language" },
+    "others_lang_browser_hint": { "message": "Used when UI language is set to \"Follow browser language\"" },
+    "others_lang_ui": { "message": "UI language" },
+    "others_lang_auto": { "message": "Follow browser language" },
+    "others_lang_hint": { "message": "Applies instantly to the options page, popup and toolbar tooltip" }
 }

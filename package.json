@@ -1,8 +1,8 @@
 {
-  "name": "wxt-vue-starter",
-  "description": "manifest.json description",
+  "name": "hiproxy",
+  "description": "HiProxy - 面向安全研究的浏览器代理管理扩展",
   "private": true,
-  "version": "0.0.0",
+  "version": "4.0.0",
   "type": "module",
   "scripts": {
     "dev": "wxt",
@@ -15,18 +15,15 @@
     "postinstall": "wxt prepare"
   },
   "dependencies": {
-    "@vicons/ionicons4": "^0.12.0",
+    "@vicons/fluent": "^0.12.0",
     "@vicons/ionicons5": "^0.12.0",
+    "naive-ui": "^2.40.1",
     "vue": "^3.5.11"
   },
   "devDependencies": {
-    "@vicons/fluent": "^0.12.0",
     "@wxt-dev/module-vue": "^1.0.1",
-    "naive-ui": "^2.40.1",
     "typescript": "^5.6.2",
-    "vfonts": "^0.0.3",
-    "vue-router": "^4.4.5",
     "vue-tsc": "^2.1.6",
-    "wxt": "^0.19.13"
+    "wxt": "^0.20.0"
   }
 }

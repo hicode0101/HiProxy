@@ -1,137 +1,116 @@
 {
-    "plugin_name": {
-        "message": "HiProxy"      
-    },
-    "plugin_desc": {
-        "message": "HiProxy 一个代理设置插件"      
-    },
-    "pop_menu_direct": {
-        "message": "直接连接"      
-    },
-    "pop_menu_system": {
-        "message": "系统代理"      
-    },
-    "pop_menu_options": {
-        "message": "配置选项"      
-    },
-    "pop_menu_myip": {
-        "message": "查询当前IP"      
-    },
-    "options_tab_proxy_config": {
-        "message": "代理配置"      
-    },
-    "options_tab_bypass_doc": {
-        "message": "通配符说明文档"      
-    },
-    "options_tab_export": {
-        "message": "导入导出"      
-    },
-    "options_tab_others": {
-        "message": "其它配置"      
-    },
-    "options_tab_about": {
-        "message": "关于"      
-    },
-    "options_btn_addNew": {
-        "message": "新增代理配置"      
-    },
-    "options_msg_input_proxy_name_ph": {
-        "message": "代理配置的名称，例如：http-8080，方便自己区分"      
-    },
-    "options_btn_save_all": {
-        "message": "批量保存"      
-    },
-    "options_btn_reset": {
-        "message": "重置"      
-    },
-    "options_btn_detail_ok": {
-        "message": "确定修改，并返回到列表"      
-    },
-    "options_btn_detail_ok_tips": {
-        "message": "修改后在列表界面，点批量保存按钮生效"      
-    },
-    "options_about_project": {
-        "message": "项目地址"      
-    },
-    "options_about_version": {
-        "message": "版本号"      
-    },
-    "options_about_author": {
-        "message": "作者"      
-    },
-    "options_msg_repeat_name": {
-        "message": "存在重复的配置名，请检查!"      
-    },
-    "options_msg_save_success": {
-        "message": "保存成功！"      
-    },
-    "options_msg_reset_dialog_title": {
-        "message": "操作警告"      
-    },
-    "options_msg_reset_dialog_content": {
-        "message": "您确定要重置全部配置吗？"      
-    },
-    "options_msg_reset_dialog_positiveText": {
-        "message": "确定重置"      
-    },
-    "options_msg_reset_dialog_negativeText": {
-        "message": "取消"      
-    },
-    "options_msg_input_name": {
-        "message": "配置名参数不正确，请检查"      
-    },
-    "options_msg_input_host": {
-        "message": "主机地址参数不正确，请检查"      
-    },
-    "options_msg_input_port": {
-        "message": "端口参数不正确（端口范围 0~ 65535），请检查"      
-    },
-    "options_msg_input_detail_bypass": {
-        "message": "不经过代理连接的主机列表: (每行一个主机，支持通配符)"      
-    },
-    "options_msg_input_detail_bypass_host_ph": {
-        "message": "请输入 主机IP 或 域名通配符"      
-    },
-    "options_msg_input_detail_auth": {
-        "message": "代理登录: (如无需密码登录，则下面选项全部留空)"      
-    },
-    "options_msg_input_detail_auth_username": {
-        "message": "用户名"      
-    },
-    "options_msg_input_detail_auth_password": {
-        "message": "密码"      
-    },
-    "options_msg_export_tips": {
-        "message": "在这里您可以将当前的配置导出进行备份或分享，也可以在这里通过导入文件直接还原个性化的配置参数。"      
-    },
-    "options_msg_export_lbl": {
-        "message": "导出"      
-    },
-    "options_msg_export_btn": {
-        "message": "导出当前配置"      
-    },
-    "options_msg_import_lbl": {
-        "message": "导入"      
-    },
-    "options_msg_import_btn": {
-        "message": "导入配置"      
-    },
-    "options_msg_import_reset_lbl": {
-        "message": "重置"      
-    },
-    "options_msg_import_reset_btn": {
-        "message": "重置（还原到初始配置）"      
-    },
-    "options_msg_others_uselastproxy_lbl": {
-        "message": "默认上一次代理"      
-    },
-    "options_msg_others_uselastproxy_switch": {
-        "message": "（每次重新启动浏览器时，自动使用上一次使用的代理）"      
-    },
-    "options_msg_xxxxxxxxx": {
-        "message": "xxxxxxxxxxxx"      
-    },
-    "test_note": {
-        "message": ""      
-    }
+    "plugin_name": { "message": "HiProxy" },
+    "plugin_desc": { "message": "HiProxy - 面向安全研究的浏览器代理管理扩展" },
+
+    "status_current": { "message": "当前：" },
+
+    "mode_direct": { "message": "直接连接" },
+    "mode_system": { "message": "系统代理" },
+    "mode_fixed": { "message": "固定服务器" },
+    "mode_auto": { "message": "自动切换" },
+    "mode_pac": { "message": "PAC 脚本" },
+
+    "tab_profiles": { "message": "代理配置" },
+    "tab_auto": { "message": "自动切换" },
+    "tab_pac": { "message": "PAC 脚本" },
+    "tab_io": { "message": "导入导出" },
+    "tab_others": { "message": "其它配置" },
+    "tab_doc": { "message": "通配符说明文档" },
+    "tab_about": { "message": "关于" },
+
+    "common_confirm": { "message": "确定" },
+    "common_cancel": { "message": "取消" },
+    "common_delete": { "message": "删除" },
+
+    "pop_direct": { "message": "直接连接" },
+    "pop_system": { "message": "系统代理" },
+    "pop_auto": { "message": "自动切换" },
+    "pop_pac": { "message": "PAC 脚本" },
+    "pop_profiles_section": { "message": "代理配置" },
+    "pop_no_configs": { "message": "暂无代理配置，请先在配置选项中添加" },
+    "pop_options": { "message": "配置选项" },
+    "pop_myip": { "message": "查询当前 IP" },
+
+    "profiles_add": { "message": "新增配置" },
+    "profiles_name_ph": { "message": "配置名称，如 http-8080" },
+    "profiles_in_use": { "message": "使用中" },
+    "profiles_set_current": { "message": "设为当前代理" },
+    "profiles_detail": { "message": "编辑 bypass 与认证" },
+    "profiles_empty": { "message": "暂无配置，点击上方按钮新增" },
+    "profiles_save_all": { "message": "批量保存" },
+    "profiles_save_ok": { "message": "保存成功" },
+    "profiles_activated": { "message": "已切换为：$MSG$", "placeholders": { "msg": { "content": "$1" } } },
+    "profiles_reset": { "message": "重置" },
+    "profiles_reset_ok": { "message": "已恢复默认配置" },
+    "profiles_reset_confirm_title": { "message": "操作警告" },
+    "profiles_reset_confirm": { "message": "确定要重置全部配置吗？自定义的配置、自动切换规则和 PAC 脚本都会被清空。" },
+    "profiles_err_name_empty": { "message": "配置名不能为空" },
+    "profiles_err_name_dup": { "message": "配置名重复" },
+    "profiles_err_host_empty": { "message": "主机地址不能为空" },
+    "profiles_err_port_invalid": { "message": "端口需为 1~65535 的整数" },
+    "profiles_err_summary": { "message": "有 $MSG$ 行配置未通过校验（红框标记），请修正后再保存", "placeholders": { "msg": { "content": "$1" } } },
+
+    "profiles_tpl_burp": { "message": "Burp HTTP (8080)" },
+    "profiles_tpl_clash_http": { "message": "HTTP (7890)" },
+    "profiles_tpl_clash_socks": { "message": "SOCKS5 (7891)" },
+    "profiles_tpl_v2rayn": { "message": "SOCKS5 (10808)" },
+    "profiles_tpl_ssh": { "message": "SOCKS5 (1080)" },
+    "profiles_tpl_blank": { "message": "空白配置" },
+
+    "detail_bypass_title": { "message": "不经过代理的主机列表（每行一个，支持通配符，详见「通配符说明文档」）" },
+    "detail_bypass_ph": { "message": "127.0.0.1&#10;localhost&#10;*.internal.corp" },
+    "detail_auth_title": { "message": "代理认证（HTTP/HTTPS 代理自动回填；SOCKS5 认证受 Chrome 限制，需配合 HiLocalProxy）" },
+    "detail_auth_username": { "message": "用户名" },
+    "detail_auth_password": { "message": "密码" },
+    "detail_ok": { "message": "确定修改" },
+
+    "auto_desc": { "message": "自动切换模式：按域名规则自动选择代理，规则按顺序匹配、先命中先生效。启用方式：在 Popup 或列表中将模式切换为「自动切换」。" },
+    "auto_fallback": { "message": "默认走向：" },
+    "auto_target_direct": { "message": "直接连接" },
+    "auto_hint": { "message": "修改即时生效，无需手动保存" },
+    "auto_pattern_ph": { "message": "域名表达式，如 *.google.com" },
+    "auto_add_rule": { "message": "添加规则" },
+    "auto_empty": { "message": "暂无规则，添加后指定域名将自动使用对应代理" },
+    "auto_enable_hint": { "message": "提示：*.example.com 表示匹配 example.com 及其所有子域名。" },
+
+    "pac_desc": { "message": "PAC 脚本模式：使用自定义 PAC 脚本完全接管分流逻辑，入口函数必须为 FindProxyForURL(url, host)。" },
+    "pac_save": { "message": "保存" },
+    "pac_save_enable": { "message": "保存并启用" },
+    "pac_from_auto": { "message": "由自动切换规则生成" },
+    "pac_reset_tpl": { "message": "恢复默认模板" },
+    "pac_dirty_hint": { "message": "有未保存的修改" },
+    "pac_save_ok": { "message": "PAC 脚本已保存" },
+    "pac_enabled_ok": { "message": "PAC 脚本已保存并启用" },
+    "pac_invalid_warn": { "message": "脚本缺少 FindProxyForURL 入口函数，当前脚本启用时将被忽略（回退直连）" },
+    "pac_err_non_ascii": { "message": "PAC 脚本只能包含 ASCII 字符（Chrome 限制）：请移除中文等非 ASCII 字符后再保存" },
+
+    "io_desc": { "message": "将当前配置导出备份或分享；导入支持新版格式，并自动识别升级旧版 3.x 配置文件。" },
+    "io_export_label": { "message": "导出：" },
+    "io_export": { "message": "导出当前配置" },
+    "io_export_ok": { "message": "已导出 HiProxyConfig.json" },
+    "io_import_label": { "message": "导入：" },
+    "io_file_choose": { "message": "选择文件…" },
+    "io_import": { "message": "导入配置" },
+    "io_err_no_file": { "message": "请先选择配置文件" },
+    "io_err_not_json": { "message": "文件内容不是有效的 JSON" },
+    "io_err_unknown_format": { "message": "无法识别的配置文件格式" },
+    "io_import_confirm_title": { "message": "确认导入" },
+    "io_import_confirm": { "message": "将导入 $MSG1$ 个代理配置、$MSG2$ 条自动切换规则，并覆盖当前全部设置。确定继续吗？", "placeholders": { "msg1": { "content": "$1" }, "msg2": { "content": "$2" } } },
+    "io_imported": { "message": "已导入 $MSG$ 个代理配置", "placeholders": { "msg": { "content": "$1" } } },
+    "io_imported_legacy": { "message": "检测到旧版 3.x 配置，已自动升级" },
+    "io_reset_label": { "message": "重置：" },
+    "io_reset": { "message": "重置（还原到初始配置）" },
+    "io_reset_confirm_title": { "message": "操作警告" },
+    "io_reset_confirm": { "message": "确定要恢复出厂默认配置吗？当前所有自定义设置将被覆盖。" },
+
+    "others_use_last": { "message": "默认上一次代理" },
+    "others_use_last_hint": { "message": "每次重新启动浏览器时，自动使用上一次使用的代理" },
+    "others_badge": { "message": "显示模式徽标" },
+    "others_badge_hint": { "message": "在工具栏图标上显示当前模式的文字徽标（如 AUTO / PAC / SYS）" },
+
+    "others_lang_browser": { "message": "当前浏览器语言" },
+    "others_lang_browser_hint": { "message": "界面语言选择「浏览器当前语言」时，按此语言显示" },
+    "others_lang_ui": { "message": "界面语言" },
+    "others_lang_auto": { "message": "浏览器当前语言" },
+    "others_lang_hint": { "message": "切换后整个扩展界面（选项页 / 弹窗 / 图标提示）立即生效" }
 }
