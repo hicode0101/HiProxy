@@ -40,7 +40,7 @@ English | [简体中文](README.md)
 - Visual per-row editing: **color icon + color swatch + name + scheme (HTTP/HTTPS/SOCKS4/SOCKS5) + host + port**
 - Detail dialog: edit the **bypass host list** (one per line, wildcards supported) and **proxy authentication** (username/password)
 - One-click "Set as active"; the active profile is tagged **"In use"**
-- **Quick templates**: Burp Suite (8080) / Clash HTTP (7890) / Clash SOCKS5 (7891) / v2rayN (10808) / SSH tunnel (1080) / blank
+- **Quick templates**: Burp Suite (8080) / HTTP (7890) / SOCKS5 (7891) / SOCKS5 (10808) / SOCKS5 (1080) / blank
 - Batch save with inline validation (unique name, non-empty host, port 1–65535); invalid rows are highlighted in red
 
 ### Auto Switch (SwitchyOmega style) 🆕
