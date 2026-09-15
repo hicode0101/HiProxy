@@ -41,14 +41,15 @@ export default defineBackground(() => {
     }
   });
 
-  // 浏览器启动：按"恢复上次代理"开关决定行为（不覆盖已保存的激活配置）
+  // 浏览器启动：按"恢复上次代理"开关决定行为
   browser.runtime.onStartup.addListener(() => {
     void loadConfig().then((cfg) => {
       if (cfg.useLastProxy) {
         void syncLocaleAndApply(cfg);
       } else {
-        // 仅临时切直连，保存的 activeMode 保持不变，方便用户手动恢复
-        void syncLocaleAndApply({ ...cfg, activeMode: 'direct' });
+        // 开关关闭：启动即回到直接连接，并把激活模式落盘为 direct，
+        // 保证 popup / options 的高亮选中态与实际代理一致；代理配置列表不受影响
+        void saveConfig({ ...cfg, activeMode: 'direct' }).then((saved) => syncLocaleAndApply(saved));
       }
     });
   });
