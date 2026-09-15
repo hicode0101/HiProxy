@@ -43,10 +43,10 @@ English | [简体中文](README.md)
 - **Quick templates**: Burp Suite (8080) / HTTP (7890) / SOCKS5 (7891) / SOCKS5 (10808) / SOCKS5 (1080) / blank
 - Batch save with inline validation (unique name, non-empty host, port 1–65535); invalid rows are highlighted in red
 
-### Auto Switch (SwitchyOmega style) 🆕
+### Auto Switch 🆕
 
 - Rule list: **domain pattern → target** (direct / any profile), matched in order, first match wins
-- Patterns follow SwitchyOmega semantics: `*.example.com` matches the apex plus all subdomains, `*` matches everything
+- Patterns: `*.example.com` matches the apex plus all subdomains, `*` matches everything
 - Configurable **default target** when nothing matches; changes apply **instantly** (debounced save)
 
 ### PAC Script 🆕
