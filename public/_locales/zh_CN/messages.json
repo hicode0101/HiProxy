@@ -1,6 +1,6 @@
 {
     "plugin_name": { "message": "HiProxy" },
-    "plugin_desc": { "message": "HiProxy - 面向安全研究的浏览器代理管理扩展" },
+    "plugin_desc": { "message": "HiProxy - 用于Chrome浏览器的代理管理扩展" },
 
     "status_current": { "message": "当前：" },
 

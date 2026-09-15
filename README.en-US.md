@@ -2,7 +2,7 @@
 
 # 🌐 HiProxy
 
-**Browser proxy manager for security research (Chrome Manifest V3)**
+**Proxy management extension for the Chrome browser (Chrome Manifest V3)**
 
 Fully rewritten in v4 with Vue 3 + WXT + TypeScript and a Windows 11 (Fluent Design) UI,
 carrying over everything from 3.x and adding **Auto Switch**, **PAC Script mode** and **Proxy Authentication**.

@@ -1,6 +1,6 @@
 {
   "name": "hiproxy",
-  "description": "HiProxy - 面向安全研究的浏览器代理管理扩展",
+  "description": "HiProxy - 用于Chrome浏览器的代理管理扩展",
   "private": true,
   "version": "4.0.2",
   "type": "module",

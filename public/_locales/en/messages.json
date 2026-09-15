@@ -1,6 +1,6 @@
 {
     "plugin_name": { "message": "HiProxy" },
-    "plugin_desc": { "message": "HiProxy - Proxy manager extension for security research" },
+    "plugin_desc": { "message": "HiProxy - Proxy management extension for the Chrome browser" },
 
     "status_current": { "message": "Current: " },
 

@@ -2,7 +2,7 @@
 
 # 🌐 HiProxy
 
-**面向安全研究的浏览器代理管理扩展（Chrome Manifest V3）**
+**用于Chrome浏览器的代理管理扩展（Chrome Manifest V3）**
 
 全新 v4 重写：Vue 3 + WXT + TypeScript，Win11 (Fluent Design) 风格界面，
 在 3.x 全部能力之上新增 **自动切换**、**PAC 脚本模式** 与 **代理认证**。
