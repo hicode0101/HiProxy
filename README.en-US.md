@@ -90,14 +90,14 @@ English | [简体中文](README.md)
 
 ### Option 3: One-click packaging script (Windows)
 
-Double-click **`package.bat`** in the project root — it checks pnpm, installs dependencies, builds, and produces `.output\hiproxy-<version>-chrome.zip`.
+Double-click **`package.bat`** in the project root — it checks pnpm, installs dependencies, builds, and produces `dist\hiproxy-<version>-chrome.zip`.
 
 ## 🛠 Development & build
 
 ```bash
 pnpm install     # install dependencies (runs wxt prepare via postinstall)
 pnpm dev         # dev mode with auto-open browser
-pnpm build       # build chrome-mv3 into .output/chrome-mv3
+pnpm build       # build chrome-mv3 into dist/chrome-mv3
 pnpm zip         # build and create the release zip
 pnpm compile     # vue-tsc type check
 ```

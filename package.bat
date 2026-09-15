@@ -5,7 +5,7 @@ title HiProxy Package Script
 rem ============================================================
 rem  HiProxy one-click package script
 rem  Flow: check pnpm -> install deps -> build extension -> zip
-rem  Output: .output\hiproxy-<version>-chrome.zip
+rem  Output: dist\hiproxy-<version>-chrome.zip
 rem  NOTE: keep this file ASCII-only (cmd.exe encoding limits)
 rem ============================================================
 
@@ -41,11 +41,11 @@ echo   [3/4] Build extension
 echo ============================================
 call pnpm build
 if errorlevel 1 goto :fail
-if not exist ".output\chrome-mv3\manifest.json" (
-    echo [ERROR] Build output missing: .output\chrome-mv3\manifest.json
+if not exist "dist\chrome-mv3\manifest.json" (
+    echo [ERROR] Build output missing: dist\chrome-mv3\manifest.json
     goto :fail
 )
-echo [OK] Build output: .output\chrome-mv3
+echo [OK] Build output: dist\chrome-mv3
 
 echo.
 echo ============================================
@@ -62,8 +62,8 @@ echo.
 echo ============================================
 echo   Package SUCCESS
 echo   Version: v%VERSION%
-echo   Unpacked: .output\chrome-mv3
-echo   Release:  .output\hiproxy-%VERSION%-chrome.zip
+echo   Unpacked: dist\chrome-mv3
+echo   Release:  dist\hiproxy-%VERSION%-chrome.zip
 echo ============================================
 echo.
 echo Tip: upload the zip to Chrome Web Store, or unzip it and load via

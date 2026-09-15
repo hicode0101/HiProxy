@@ -90,14 +90,14 @@
 
 ### 方式三：一键打包脚本（Windows）
 
-双击项目根目录的 **`package.bat`**，自动完成：检查 pnpm → 安装依赖 → 构建 → 生成 `.output\hiproxy-<版本>-chrome.zip`。
+双击项目根目录的 **`package.bat`**，自动完成：检查 pnpm → 安装依赖 → 构建 → 生成 `dist\hiproxy-<版本>-chrome.zip`。
 
 ## 🛠 开发与构建
 
 ```bash
 pnpm install     # 安装依赖（postinstall 自动执行 wxt prepare）
 pnpm dev         # 开发模式，自动打开浏览器
-pnpm build       # 构建 chrome-mv3 到 .output/chrome-mv3
+pnpm build       # 构建 chrome-mv3 到 dist/chrome-mv3
 pnpm zip         # 构建并生成发布 zip
 pnpm compile     # vue-tsc 类型检查
 ```

@@ -3,6 +3,8 @@ import { defineConfig } from 'wxt';
 // WXT 构建配置
 // 版本号以 package.json 的 version 为唯一来源，此处不再重复维护
 export default defineConfig({
+  // 输出到 dist（默认 .output 是隐藏目录，upload-artifact 等 CI 步骤默认不匹配点开头目录）
+  outDir: 'dist',
   // 关闭 API 自动导入，所有依赖显式 import，代码来源一目了然
   imports: false,
   modules: ['@wxt-dev/module-vue'],
