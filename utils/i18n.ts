@@ -19,8 +19,8 @@ type ResolvedLocale = 'zh_CN' | 'en';
 
 /** 用户设置（auto / en / zh_CN） */
 const setting = ref<UiLocaleSetting>('auto');
-/** 实际生效的语言资源 */
-const locale = ref<ResolvedLocale>('zh_CN');
+/** 实际生效的语言资源：初值即按 auto 策略同步解析，保证配置加载前首帧语言已正确（不支持的语言 → 英语） */
+const locale = ref<ResolvedLocale>(resolveLocale('auto'));
 /** 当前语言的全部文案（key → message 模板） */
 const messages = ref<Record<string, string>>({});
 
