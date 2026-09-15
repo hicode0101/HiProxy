@@ -51,9 +51,9 @@
     "profiles_err_summary": { "message": "有 $MSG$ 行配置未通过校验（红框标记），请修正后再保存", "placeholders": { "msg": { "content": "$1" } } },
 
     "profiles_tpl_burp": { "message": "Burp HTTP (8080)" },
-    "profiles_tpl_clash_http": { "message": "HTTP (7890)" },
-    "profiles_tpl_clash_socks": { "message": "SOCKS5 (7891)" },
-    "profiles_tpl_v2rayn": { "message": "SOCKS5 (10808)" },
+    "profiles_tpl_http_7890": { "message": "HTTP (7890)" },
+    "profiles_tpl_socks5_7891": { "message": "SOCKS5 (7891)" },
+    "profiles_tpl_socks5_10808": { "message": "SOCKS5 (10808)" },
     "profiles_tpl_ssh": { "message": "SOCKS5 (1080)" },
     "profiles_tpl_blank": { "message": "空白配置" },
 

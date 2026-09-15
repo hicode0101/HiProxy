@@ -51,7 +51,7 @@ English | [简体中文](README.md)
 
 ### PAC Script 🆕
 
-- Monospace code editor with Save / **Save & Enable** / Restore template / **Generate from auto-switch rules**
+- Monospace code editor with Save / **Save & Enable** / Restore default template / **Generate from auto-switch rules in one click**
 - Live validation of the `FindProxyForURL` entry function and the ASCII-only limit; invalid scripts fall back to Direct instead of breaking your network
 
 ### Import / Export & data migration
@@ -74,17 +74,17 @@ English | [简体中文](README.md)
 
 - 🪟 **Windows 11 (Fluent Design) UI**: Mica-style background, acrylic cards, top-down layout with feature tabs
 - 🌍 **English & 简体中文 with a switchable UI language** (follow browser / English / 简体中文, change it in "Others"); 💾 **Versioned storage** (`schemaVersion`-driven, smooth migrations)
-- ⌨️ 7 ready-made presets: Burp interception (common telemetry domains pre-bypassed), loopback interception (`<-loopback>`), and more
+- ⌨️ 7 ready-made preset profiles out of the box: Burp interception (common telemetry domains pre-bypassed), loopback interception (`<-loopback>`), and more
 
 ## 📦 Installation
 
 ### Option 1: Chrome Web Store
 
-> Search for **HiProxy**, or grab a zip from [Releases](https://github.com/hicode0101/HiProxy/releases).
+> Install online directly from the [HiProxy page on the Chrome Web Store](https://chromewebstore.google.com/detail/hiproxy/ammmjkfjeahfkfffncemmbpfdboclfah).
 
 ### Option 2: Load unpacked (developers)
 
-1. Download and unzip `chrome.zip` (or build it yourself — see below)
+1. Download [`chrome.zip`](https://github.com/hicode0101/HiProxy/releases) and unzip it (or build it yourself — see below)
 2. Open `chrome://extensions` and enable **Developer mode**
 3. Click **"Load unpacked"** and pick the unzipped folder
 
@@ -104,23 +104,23 @@ pnpm compile     # vue-tsc type check
 
 Stack: **Vue 3.5 + WXT 0.20 + TypeScript 5 + Naive UI (tree-shaken)**. Minimum Chrome version: 100.
 
-**CI packaging**: A GitHub Actions workflow is included (`.github/workflows/release.yml`) — pushes to `main` run type check + build and upload the zip as a workflow artifact; pushing a `v*` tag (e.g. `v4.0.1`) automatically creates a GitHub Release with the zip attached.
+**CI packaging**: A GitHub Actions workflow is included (`.github/workflows/release.yml`) — pushes to `main` run the type check, build, and upload the zip as a workflow artifact; pushing a `v*` tag (e.g. `v4.0.1`) automatically creates a GitHub Release with the zip attached.
 
 ## 🗂 Project layout
 
 ```
 HiProxy/
 ├── entrypoints/
-│   ├── background.ts        # Service worker: watches config changes → applies the proxy
+│   ├── background.ts        # Service Worker: watches config changes → applies the proxy in one place
 │   ├── options/             # Options page (top-down layout, 7 feature tabs)
 │   │   └── tabs/            # Profiles / Auto Switch / PAC Script / Import-Export / Others / Wildcard docs / About
-│   └── popup/               # Quick-switch menu (Win11 acrylic style)
+│   └── popup/               # Quick-switch popup menu (Win11 acrylic style)
 ├── components/              # Shared components (profile detail dialog, …)
 ├── composables/useConfig.ts # Global config state: load / draft updates / cross-context sync
 ├── types/                   # Domain types (ProxyProfile / ExtensionConfig / backup formats)
 ├── utils/
 │   ├── config/              # Defaults / validation / legacy migration / load-save facade
-│   ├── proxy/               # Proxy engine / PAC generator / icon & badge / auth
+│   ├── proxy/               # Proxy engine / PAC generator / icon & badge / proxy auth
 │   ├── storage.ts           # Thin storage.local wrapper (single root key + watch)
 │   └── object.ts / i18n.ts  # deepClone (avoids the structuredClone pitfall) / i18n helper
 └── public/_locales/         # en / zh_CN messages
@@ -128,9 +128,9 @@ HiProxy/
 
 ## 🏗 Architecture notes
 
-- **Event-driven single writer**: UI only writes config → `storage.watch` → the background applies proxy / icon / auth cache in one place, eliminating state drift
+- **Event-driven single writer**: the UI only writes config → `storage.watch` → the background applies the proxy / icon / auth cache in one place, eliminating state drift from scattered direct calls
 - **Stable UUIDs**: profiles are identified by UUID, decoupled from their display name — renaming no longer silently drops the active proxy
-- **Sanitize on write**: data from any source (import / migration / manual) passes through `sanitizeConfig`; dangling references fall back to Direct
+- **Sanitize on write**: data from any source (import / migration / manual) passes through `sanitizeConfig`; dangling references fall back to Direct automatically
 - **Versioned storage**: a `schemaVersion`-driven migration chain, backwards compatible with legacy 3.x data
 
 ## 🔐 Permissions
@@ -142,7 +142,7 @@ HiProxy/
 | `webRequest` + `webRequestAuthProvider` | Listen for proxy auth challenges and auto-fill credentials |
 | `host_permissions: <all_urls>` | Required by MV3 so `onAuthRequired` covers every site |
 
-The extension **collects and uploads nothing** — all settings stay in your local browser.
+The extension **collects and uploads no data** — all settings stay in your local browser.
 
 ## ❓ FAQ
 
@@ -152,7 +152,7 @@ The extension **collects and uploads nothing** — all settings stay in your loc
 
 ## 👨‍💻 Author
 
-**犀利的远哥 (hicode0101)** — security researcher / white hat
+**犀利的远哥 (hicode0101)** — white-hat security researcher
 
 | 💬 WeChat | 📢 Official account |
 | :---: | :---: |
@@ -162,4 +162,4 @@ Questions and feature requests are always welcome.
 
 ## 📜 Disclaimer
 
-> These tools are intended **for white-hat security research and technical exchange only. Commercial use is prohibited.**
+> This series of tools is intended **for white-hat security research and technical exchange only. Commercial use is prohibited.**

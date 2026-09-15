@@ -80,11 +80,11 @@
 
 ### 方式一：Chrome Web Store
 
-> 搜索 **HiProxy**，或从 [Releases](https://github.com/hicode0101/HiProxy/releases) 下载 zip 包。
+> 直接访问ChromeStore上的 [HiProxy](https://chromewebstore.google.com/detail/hiproxy/ammmjkfjeahfkfffncemmbpfdboclfah) 进行在线安装。
 
 ### 方式二：本地加载（开发者）
 
-1. 下载 `chrome.zip` 并解压（或自行构建，见下文）
+1. 下载 [`chrome.zip`](https://github.com/hicode0101/HiProxy/releases) 并解压（或自行构建，见下文）
 2. 打开 `chrome://extensions`，开启右上角 **开发者模式**
 3. 点击 **「加载已解压的扩展程序」**，选择解压后的目录
 

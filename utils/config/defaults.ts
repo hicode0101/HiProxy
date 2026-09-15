@@ -162,20 +162,20 @@ export const PROFILE_TEMPLATES: ProfileTemplate[] = [
       makeProfile({ name: 'burp-8080', color: '#55bb55', scheme: 'http', host: '127.0.0.1', port: 8080 }),
   },
   {
-    key: 'clash-http',
-    labelKey: 'profiles_tpl_clash_http',
+    key: 'http-7890',
+    labelKey: 'profiles_tpl_http_7890',
     build: () =>
       makeProfile({ name: 'http-7890', color: '#0b4da4', scheme: 'http', host: '127.0.0.1', port: 7890 }),
   },
   {
-    key: 'clash-socks',
-    labelKey: 'profiles_tpl_clash_socks',
+    key: 'socks5-7891',
+    labelKey: 'profiles_tpl_socks5_7891',
     build: () =>
       makeProfile({ name: 'socks5-7891', color: '#9117c5', scheme: 'socks5', host: '127.0.0.1', port: 7891 }),
   },
   {
-    key: 'v2rayn',
-    labelKey: 'profiles_tpl_v2rayn',
+    key: 'socks5-10808',
+    labelKey: 'profiles_tpl_socks5_10808',
     build: () =>
       makeProfile({ name: 'socks5-10808', color: '#d497ee', scheme: 'socks5', host: '127.0.0.1', port: 10808 }),
   },
