@@ -156,7 +156,7 @@ HiProxy/
 
 | 💬 微信 | 📢 公众号 |
 | :---: | :---: |
-| <img src="ScreenShot/weixin.png" width="180" /> | <img src="ScreenShot/gzh.png" width="180" /> |
+| <img src="screenshot/weixin.png" width="180" /> | <img src="screenshot/gzh.png" width="180" /> |
 
 使用中遇到问题欢迎联系，功能需求也请告知。
 

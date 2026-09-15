@@ -156,7 +156,7 @@ The extension **collects and uploads nothing** — all settings stay in your loc
 
 | 💬 WeChat | 📢 Official account |
 | :---: | :---: |
-| <img src="ScreenShot/weixin.png" width="180" /> | <img src="ScreenShot/gzh.png" width="180" /> |
+| <img src="screenshot/weixin.png" width="180" /> | <img src="screenshot/gzh.png" width="180" /> |
 
 Questions and feature requests are always welcome.
 
