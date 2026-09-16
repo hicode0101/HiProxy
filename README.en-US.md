@@ -72,7 +72,6 @@ English | [简体中文](README.md)
 
 ### More
 
-- 🪟 **Windows 11 (Fluent Design) UI**: Mica-style background, acrylic cards, top-down layout with feature tabs
 - 🌍 **English & 简体中文 with a switchable UI language** (follow browser / English / 简体中文, change it in "Others"); 💾 **Versioned storage** (`schemaVersion`-driven, smooth migrations)
 - ⌨️ 7 ready-made preset profiles out of the box: Burp interception (common telemetry domains pre-bypassed), loopback interception (`<-loopback>`), and more
 
