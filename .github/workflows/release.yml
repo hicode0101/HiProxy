@@ -25,6 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 打 tag 构建时，把 package.json 的 version 同步为 tag 版本号（去掉 v 前缀），
+      # 保证 zip 文件名 / manifest 版本与 Release 一致，忘记提前 bump 版本号也不会偏差。
+      # npm 预装在 runner 上，且 --no-git-tag-version 不碰 git、不碰 pnpm-lock.yaml
+      - name: Sync version from tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: npm version "${GITHUB_REF_NAME#v}" --no-git-tag-version --allow-same-version
+
       # 不写 version 入参：action 会读 package.json 的 "packageManager" 字段
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
