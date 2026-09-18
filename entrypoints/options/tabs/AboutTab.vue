@@ -69,8 +69,8 @@ const copy = computed(() => COPY[resolvedUiLocale()]);
         <tr>
           <td class="row-label">{{ copy.project }}</td>
           <td>
-            <a href="https://github.com/hicode0101/HiProxy" target="_blank">
-              https://github.com/hicode0101/HiProxy
+            <a href="https://github.com/hicode0101/HiTools" target="_blank">
+              https://github.com/hicode0101/HiTools
             </a>
           </td>
         </tr>
