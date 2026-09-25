@@ -151,11 +151,11 @@ The extension **collects and uploads no data** — all settings stay in your loc
 
 ## 👨‍💻 Author
 
-**犀利的远哥 (hicode0101)** — white-hat security researcher
+**犀利的远哥 (hicode0101)** — security researcher
 
 
 Questions and feature requests are always welcome.
 
 ## 📜 Disclaimer
 
-> This series of tools is intended **for white-hat security research and technical exchange only. Commercial use is prohibited.**
+> This series of tools is intended **for security research and technical exchange only. Commercial use is prohibited.**
